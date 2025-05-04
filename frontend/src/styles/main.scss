@@ -1,0 +1,11 @@
+@use './abstracts/variables';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: variables.$background-primary;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
