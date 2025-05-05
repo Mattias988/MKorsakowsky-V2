@@ -1,0 +1,17 @@
+@use '../../styles/abstracts/variables' as vars;
+
+.btn {
+  background-color: vars.$color-primary;
+  color: vars.$color-accent;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  width: fit-content;
+
+  &:hover {
+    background-color: darken(vars.$color-primary, 80%);
+    color: vars.$color-primary;
+  }
+}
