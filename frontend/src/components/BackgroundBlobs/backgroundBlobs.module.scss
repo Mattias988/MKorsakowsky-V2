@@ -12,9 +12,9 @@
   .blob {
     position: absolute;
     width: 400px;
-    height: 400px;
+    height: 200px;
     background: radial-gradient(circle, variables.$color-primary, transparent);
-    filter: blur(120px);
+    filter: blur(60px);
     border-radius: 50%;
     animation: moveBlob 20s infinite alternate ease-in-out;
   }
@@ -22,7 +22,7 @@
   .second {
     background: radial-gradient(circle, variables.$color-primary, transparent);
     animation-delay: 10s;
-    top: 50%;
+    top: 70%;
     left: 60%;
   }
 }

@@ -8,25 +8,32 @@ export default function Hero() {
     return (
         <section className={styles.heroSection}>
             <motion.h1
-                initial={{ y: 300 }}
+                initial={{ y: 1300 }}
                 animate={{ y: 0 }}
                 exit={{ y: -1000 }}
                 transition={{ duration: 0.8 }}
             >
                 Hello, I’m Maciek.
             </motion.h1>
-            <Typewriter
-                options={{
-                    loop: true,
-                }}
-                onInit={(typewriter) => {
-                    typewriter
-                        .typeString("I'm Frontend Developer")
-                        .pauseFor(2500)
-                        .deleteAll()
-                        .start();
-                }}
-            />
+            <motion.div
+                initial={{ y: 1300 }}
+                animate={{ y: 0 }}
+                exit={{ y: -1000 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                <Typewriter
+                    options={{
+                        loop: true,
+                    }}
+                    onInit={(typewriter) => {
+                        typewriter
+                            .typeString("I'm Frontend Developer")
+                            .pauseFor(2500)
+                            .deleteAll()
+                            .start();
+                    }}
+                />
+            </motion.div>
         </section>
     );
 }
