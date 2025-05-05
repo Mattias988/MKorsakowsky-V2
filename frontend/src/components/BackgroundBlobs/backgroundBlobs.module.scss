@@ -1,0 +1,40 @@
+@use '../../styles/abstracts/variables' as variables;
+.backgroundBlobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+
+  .blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, variables.$color-primary, transparent);
+    filter: blur(120px);
+    border-radius: 50%;
+    animation: moveBlob 20s infinite alternate ease-in-out;
+  }
+
+  .second {
+    background: radial-gradient(circle, variables.$color-primary, transparent);
+    animation-delay: 10s;
+    top: 50%;
+    left: 60%;
+  }
+}
+
+@keyframes moveBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(200px, -100px) scale(1.2);
+  }
+  100% {
+    transform: translate(-150px, 150px) scale(1);
+  }
+}
