@@ -1,0 +1,15 @@
+@use '@/styles/abstracts/variables' as vars;
+
+.footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 4rem;
+  right: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding-top: 4rem;
+  z-index: 1000;
+  font-size: vars.$font-size-paragraph;
+}
