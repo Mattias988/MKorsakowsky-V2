@@ -11,10 +11,10 @@
 
   .blob {
     position: absolute;
-    width: 400px;
-    height: 400px;
+    width: 800px;
+    height: 200px;
     background: radial-gradient(circle, variables.$color-primary, transparent);
-    filter: blur(120px);
+    filter: blur(60px);
     border-radius: 50%;
     animation: moveBlob 20s infinite alternate ease-in-out;
   }
@@ -22,8 +22,15 @@
   .second {
     background: radial-gradient(circle, variables.$color-primary, transparent);
     animation-delay: 10s;
-    top: 50%;
-    left: 60%;
+    top: 20%;
+    left: 80%;
+  }
+
+  .first {
+    background: radial-gradient(circle, variables.$color-primary, transparent);
+    animation-delay: 10s;
+    top: 80%;
+    left: -20%;
   }
 }
 
