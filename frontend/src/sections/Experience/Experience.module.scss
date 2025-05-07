@@ -1,0 +1,40 @@
+@use '@/styles/abstracts/variables' as vars;
+
+.experienceSection {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 3rem;
+  padding-left: 6rem;
+
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    p {
+      font-size: vars.$font-size-title-desc;
+      line-height: 1.5;
+      color: #e2e8f0;
+      margin: 0;
+    }
+
+    h1 {
+      margin: 0;
+      padding-bottom: 2rem;
+      font-size: vars.$font-size-title;
+      font-weight: bold;
+
+    }
+
+    .desc {
+      width: 40%;
+      font-size: vars.$font-size-paragraph;
+    }
+  }
+}
