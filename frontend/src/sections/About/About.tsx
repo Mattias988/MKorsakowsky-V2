@@ -7,38 +7,37 @@ import styles from './About.module.scss'
 
 export default function About() {
     return (
-        <section className={styles.heroSection}>
+        <section className={styles.aboutSection}>
             <motion.img
                 src={LaptopImg.src}
                 alt="My Laptop"
-                initial={{ y: 300 }}
+                initial={{ y: 1300 }}
                 animate={{ y: 0 }}
                 exit={{ y: -1000 }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 0.8 }}
             />
             <div className={styles.textContent}>
                 <motion.p
-                    initial={{ y: 300 }}
+                    initial={{ y: 1300 }}
                     animate={{ y: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     About me
                 </motion.p>
                 <motion.h1
-                    initial={{ y: 300 }}
+                    initial={{ y: 1300 }}
                     animate={{ y: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration:0.8,delay: 0.3 }}
                 >
                     Who am I?
                 </motion.h1>
                 <motion.p
-                    initial={{ y: 300 }}
+                    initial={{ y: 1300 }}
                     animate={{ y: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration: 1 }}
-
+                    transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis  lectus non faucibus elementum. Quisque elementum, augue sit amet  imperdiet pharetra, risus diam tristique risus, sit amet pharetra lorem  massa vitae felis. Etiam malesuada, nisi vel pharetra bibendum, magna  magna laoreet erat, eu posuere purus dui sed sapien.
                 </motion.p>
