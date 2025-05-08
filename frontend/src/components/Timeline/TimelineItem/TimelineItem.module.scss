@@ -1,6 +1,57 @@
-@use '../../../styles/abstracts/variables' as vars;
-
 .timelineItem {
-  background-color: vars.$color-mid-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+  width: 300px;
+  z-index: 1;
+}
 
+.timelineItemDate {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.timelineItemMarkerContainer {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+
+  .timelineItemMarker {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #2b2d32;
+    border: 2px solid #ccc;
+  }
+}
+
+
+.timelineItemContainer {
+  color: #ccc;
+  text-align: left;
+
+  .timelineItemTitle {
+    font-size: 1rem;
+    color: white;
+  }
+
+  .timelineItemDescription {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .timelineItemButton {
+    padding: 0.4rem 1rem;
+    border: none;
+    background-color: #ccc;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #2b2d32;
+  }
 }

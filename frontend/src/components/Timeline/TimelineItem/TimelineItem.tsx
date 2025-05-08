@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '../Timeline/Timeline.module.scss';
+import styles from '../TimelineItem/TimelineItem.module.scss';
 
 interface TimelineItemProps {
     title?: string;
