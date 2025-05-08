@@ -1,0 +1,26 @@
+.timelineContainer {
+  width: 100vw;
+  overflow-x: auto;
+}
+
+.timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 0;
+  right: 0;
+  gap: 4rem;
+  padding: 2rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #999;
+    z-index: 0;
+  }
+}

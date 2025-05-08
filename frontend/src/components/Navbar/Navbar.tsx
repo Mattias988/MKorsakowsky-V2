@@ -2,9 +2,10 @@
 
 import styles from './Navbar.module.scss'
 import { motion } from 'framer-motion';
+import Link from "next/link";
 
 export default function Navbar() {
-console.log(motion)
+
     return (
         <nav className={styles.nav}>
             <motion.div
@@ -22,9 +23,9 @@ console.log(motion)
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <span>Home</span>
-                <span>Experience</span>
-                <span>About</span>
+                <Link className={styles.Link} href={"/"}>Home</Link>
+                <Link className={styles.Link} href={"#"}>Experience</Link>
+                <Link className={styles.Link} href={"#"}>About</Link>
             </motion.div>
         </nav>
     )

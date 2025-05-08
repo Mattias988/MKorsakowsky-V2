@@ -1,17 +1,66 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import styles from './Experience.module.scss'
+import Timeline, {TimelineEvent} from "@/components/Timeline/Timeline/Timeline";
+
+const timelineData: TimelineEvent[] = [
+    {
+        id:1,
+        date: "2024",
+        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. duis venenatis lectus.',
+        onSeeMore : ()=>console.log('see'),
+    },
+    {
+        id:2,
+        date: "2024",
+        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. duis venenatis lectus.',
+        onSeeMore : ()=>console.log('see'),
+    },
+    {
+        id:3,
+        date: "2024",
+        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. duis venenatis lectus.',
+        onSeeMore : ()=>console.log('see'),
+    },
+    {
+        id:4,
+        date: "2024",
+        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. duis venenatis lectus.',
+        onSeeMore : ()=>console.log('see'),
+    },
+]
 
 export default function Experience() {
     return (
-        <motion.section
-            className="h-screen flex items-center justify-center bg-blue-500 text-white"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            transition={{ duration: 0.8 }}
-        >
-            <h1 className="text-5xl font-bold">Experience Section</h1>
-        </motion.section>
+        <section className={styles.experienceSection}>
+            <div className={styles.textContent}>
+                <motion.p
+                    initial={{ y: 1300 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -1000 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    EXPERIENCE
+                </motion.p>
+                <motion.h1
+                    initial={{ y: 1300 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -1000 }}
+                    transition={{ duration:0.8,delay: 0.3 }}
+                >
+                    How Much Experience Do I Have?
+                </motion.h1>
+                <motion.p
+                    className={styles.desc}
+                    initial={{ y: 1300 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -1000 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis  lectus non faucibus elementum. Quisque elementum, augue sit amet  imperdiet pharetra.                </motion.p>
+            </div>
+            <Timeline items={timelineData}/>
+        </section>
     );
 }

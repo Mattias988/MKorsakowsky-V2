@@ -21,6 +21,16 @@
     justify-content: flex-end;
     padding-right: 6rem;
     gap: 4rem;
+
+    .Link {
+      text-decoration: none;
+      color: vars.$color-primary;
+
+      &:hover {
+        color: vars.$color-hover-primary;
+        transition: color 0.3s ease;
+      }
+    }
   }
 
   .greetings {
