@@ -14,14 +14,14 @@ export default function About() {
                 initial={{ y: 1300 }}
                 animate={{ y: 0 }}
                 exit={{ y: -1000 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, delay: 0.21 }}
             />
             <div className={styles.textContent}>
                 <motion.p
                     initial={{ y: 1300 }}
                     animate={{ y: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.22 }}
                 >
                     About me
                 </motion.p>
@@ -29,7 +29,7 @@ export default function About() {
                     initial={{ y: 1300 }}
                     animate={{ y: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration:0.8,delay: 0.3 }}
+                    transition={{ duration:0.8,delay: 0.23 }}
                 >
                     Who am I?
                 </motion.h1>
@@ -37,7 +37,7 @@ export default function About() {
                     initial={{ y: 1300 }}
                     animate={{ y: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    transition={{ duration: 0.8, delay: 0.24 }}
                 >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis  lectus non faucibus elementum. Quisque elementum, augue sit amet  imperdiet pharetra, risus diam tristique risus, sit amet pharetra lorem  massa vitae felis. Etiam malesuada, nisi vel pharetra bibendum, magna  magna laoreet erat, eu posuere purus dui sed sapien.
                 </motion.p>

@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../styles/abstracts/variables' as vars;
 
 .btn {
@@ -11,7 +12,7 @@
   width: fit-content;
 
   &:hover {
-    background-color: darken(vars.$color-primary, 80%);
+    background-color: color.adjust(vars.$color-primary, $lightness: -80%);
     color: vars.$color-primary;
   }
 }
