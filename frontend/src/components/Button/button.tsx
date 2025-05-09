@@ -5,11 +5,10 @@ export default function Button(){
     return (
         <motion.button
             className={styles.btn}
-            initial={{ y: 1300 }}
-            animate={{ y: 0 }}
-            exit={{ y: -1000 }}
-            transition={{ duration: 0.8, delay: 0.24 }}
-        >
+            initial={{ x: 1300 }}
+            animate={{ x: 0 }}
+            exit={{ x: 1300 }}
+            transition={{ duration: 1, delay: 0.9, ease: 'easeOut' }}>
             See more!
         </motion.button>
     )
