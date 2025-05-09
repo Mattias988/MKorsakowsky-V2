@@ -13,7 +13,7 @@ const timelineData: TimelineEvent[] = [
     },
     {
         id:2,
-        date: "2024",
+        date: "VII.2024",
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. duis venenatis lectus.',
         onSeeMore : ()=>console.log('see'),
     },
@@ -32,31 +32,32 @@ const timelineData: TimelineEvent[] = [
 ]
 
 export default function Experience() {
+
     return (
         <section className={styles.experienceSection}>
             <div className={styles.textContent}>
                 <motion.p
-                    initial={{ y: 1300 }}
-                    animate={{ y: 0 }}
+                    initial={{ x: -1300 }}
+                    animate={{ y: 0, x: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    transition={{ duration: 1, delay: 0.2 }}
                 >
                     EXPERIENCE
                 </motion.p>
                 <motion.h1
-                    initial={{ y: 1300 }}
-                    animate={{ y: 0 }}
+                    initial={{ x: -1300 }}
+                    animate={{ y: 0, x: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration:0.8,delay: 0.3 }}
+                    transition={{ duration:1,delay: 0.3 }}
                 >
                     How Much Experience Do I Have?
                 </motion.h1>
                 <motion.p
                     className={styles.desc}
-                    initial={{ y: 1300 }}
-                    animate={{ y: 0 }}
+                    initial={{ x: -1300 }}
+                    animate={{ y: 0, x: 0 }}
                     exit={{ y: -1000 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    transition={{ duration: 1, delay: 0.4 }}
                 >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis  lectus non faucibus elementum. Quisque elementum, augue sit amet  imperdiet pharetra.                </motion.p>
             </div>
