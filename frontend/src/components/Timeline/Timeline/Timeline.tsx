@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion';
 import styles from "./Timeline.module.scss";
 import TimelineItem from "@/components/Timeline/TimelineItem/TimelineItem";
 
@@ -20,12 +21,33 @@ export default function Timeline({items}: TimelineProps) {
         return null;
     }
 
+    const lineVariants = {
+        initial: { scaleX: 0 },
+        animate: {
+            scaleX: 1,
+            transition: { duration: 1, ease: 'easeOut', delay: 0.4 },
+        },
+        exit: {
+            scaleX: 0,
+            transition: { duration: 1, ease: 'easeIn' },
+        },
+    };
+
     return (
-        <div className={styles.timelineContainer}>
-            <div className={styles.timeline}>
+        <motion.div
+            className={styles.timelineContainer}
+            variants={lineVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+        >
+            <div
+                className={styles.timeline}
+            >
                 {items.map((item, index) => (
                     <TimelineItem
                         key={index}
+                        index={index}
                         title={item.title}
                         date={item.date}
                         description={item.description}
@@ -33,6 +55,6 @@ export default function Timeline({items}: TimelineProps) {
                     />
                 ))}
             </div>
-        </div>
+        </motion.div>
     )
 }
