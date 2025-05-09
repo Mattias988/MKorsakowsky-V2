@@ -16,19 +16,19 @@
     background: radial-gradient(circle, variables.$color-primary, transparent);
     filter: blur(60px);
     border-radius: 50%;
-    animation: moveBlob 20s infinite alternate ease-in-out;
+    animation: moveBlob 10s infinite alternate ease-in-out;
   }
 
   .second {
     background: radial-gradient(circle, variables.$color-primary, transparent);
-    animation-delay: 10s;
+    animation-delay: 5s;
     top: 20%;
     left: 80%;
   }
 
   .first {
     background: radial-gradient(circle, variables.$color-primary, transparent);
-    animation-delay: 10s;
+    animation-delay: 3s;
     top: 80%;
     left: -20%;
   }
@@ -38,10 +38,16 @@
   0% {
     transform: translate(0, 0) scale(1);
   }
+  25% {
+    transform: translate(30px, -50px) scale(1.2);
+  }
   50% {
-    transform: translate(200px, -100px) scale(1.2);
+    transform: translate(10px, -40px) scale(1);
+  }
+  75% {
+    transform: translate(30px, -50px) scale(1.4);
   }
   100% {
-    transform: translate(-150px, 150px) scale(1);
+    transform: translate(20px, -10px) scale(1.3);
   }
 }
