@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import LaptopImg from '@/assets/laptop-image.png'
-import Button from "@/components/Button/button";
+import {Button} from "@/components/Button/button";
 import styles from './About.module.scss'
 
 export default function About() {
