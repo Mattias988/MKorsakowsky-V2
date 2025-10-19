@@ -1,34 +1,71 @@
 'use client';
 
 import styles from './Navbar.module.scss'
-import { motion } from 'framer-motion';
-import Link from "next/link";
 
 export default function Navbar() {
 
+    const navItems = [
+        { name: 'Home', id: 'home' },
+        { name: 'About', id: 'about' },
+        { name: 'Skills', id: 'skills' },
+        { name: 'Experience', id: 'experience' },
+        { name: 'Projects', id: 'projects' },
+        { name: 'Contact', id: 'contact' },
+    ];
+
     return (
         <nav className={styles.nav}>
-            <motion.div
-                className={styles.greetings}
-                initial={{ y: -500 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8 }}
-            >
-                <div className={styles.welcome}>Maciej Korsakowski</div>
-            </motion.div>
-            <motion.div
-                className={styles.menu}
-                initial={{ y: -500 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8 }}
-            >
-                <Link className={styles.Link} href={"/"}>Home</Link>
-                <Link className={styles.Link} href={"#"}>About</Link>
-                <Link className={styles.Link} href={"#"}>Skills</Link>
-                <Link className={styles.Link} href={"#"}>Experience</Link>
-                <Link className={styles.Link} href={"#"}>Projects</Link>
-                <Link className={styles.Link} href={"#"}>Contact</Link>
-            </motion.div>
+            <div>
+                <button
+                    onClick={() => {}}
+                    className={styles.logoButton}
+                >
+                    <span>
+                        Maciej Korsakowski
+                        <span/>
+                    </span>
+                </button>
+
+                {/* Desktop Navigation */}
+                <div>
+                    {navItems.map((item) => (
+                        <button
+                            key={item.id}
+                            onClick={() => {
+                            }}
+                        >
+                            {item.name}
+                        </button>
+                    ))}
+
+                    {/* Theme Toggle */}
+                    <button
+                        key={item.id}
+                        onClick={() => {
+                        }}
+                    >
+                        {item.name}
+                    </button>
+                </div>
+
+                {/* Mobile Menu & Theme Toggle */}
+                <div>
+                    <button
+                        onClick={}
+                        aria-label=""
+                    >
+
+                    </button>
+
+                    <button
+                        onClick={}
+                        aria-label=""
+                    >
+
+                    </button>
+                </div>
+
+            </div>
         </nav>
     )
 }
