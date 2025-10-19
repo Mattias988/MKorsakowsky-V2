@@ -1,9 +1,7 @@
-@use './abstracts/variables';
 
 body {
   margin: 0;
   padding: 0;
-  background-color: variables.$background-primary;
   font-family: 'Rubik', sans-serif;
   overflow: hidden;
 }
