@@ -14,8 +14,7 @@ export default function Navbar() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <div className={styles.welcome}>Good morning</div>
-                <div className={styles.date}>12 dec</div>
+                <div className={styles.welcome}>Maciej Korsakowski</div>
             </motion.div>
             <motion.div
                 className={styles.menu}
@@ -24,8 +23,11 @@ export default function Navbar() {
                 transition={{ duration: 0.8 }}
             >
                 <Link className={styles.Link} href={"/"}>Home</Link>
-                <Link className={styles.Link} href={"#"}>Experience</Link>
                 <Link className={styles.Link} href={"#"}>About</Link>
+                <Link className={styles.Link} href={"#"}>Skills</Link>
+                <Link className={styles.Link} href={"#"}>Experience</Link>
+                <Link className={styles.Link} href={"#"}>Projects</Link>
+                <Link className={styles.Link} href={"#"}>Contact</Link>
             </motion.div>
         </nav>
     )
