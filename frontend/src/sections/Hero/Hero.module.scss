@@ -190,6 +190,7 @@
         justify-content: center;
         margin-bottom: 36px;
         text-wrap: wrap;
+        gap: 1rem;
 
       .myWorkButton{
         background-image: linear-gradient(to right, rgb(37 99 235), rgb(147 51 234));
@@ -198,6 +199,7 @@
         transition-property: all;
         transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
         transition-duration: 150ms;
+        color: black;
 
         &:hover {
           background-image: linear-gradient(to right, rgb(29 78 216), rgb(126 34 206));
@@ -206,9 +208,7 @@
           0 8px 10px -6px rgb(59 130 246 / 0.5);
         }
 
-
         @media (prefers-color-scheme: dark) {
-
           box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.3),
           0 4px 6px -4px rgb(59 130 246 / 0.3);
 
