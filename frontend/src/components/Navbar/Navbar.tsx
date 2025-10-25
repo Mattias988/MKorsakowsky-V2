@@ -1,8 +1,14 @@
 'use client';
 
 import styles from './Navbar.module.scss'
+import {useEffect, useState} from "react";
+import {useTheme} from "@/components/ThemeProvider/ThemeProvider";
+import {AnimatePresence, motion} from "framer-motion";
 
 export default function Navbar() {
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { theme, toggleTheme } = useTheme();
 
     const navItems = [
         { name: 'Home', id: 'home' },
@@ -13,11 +19,32 @@ export default function Navbar() {
         { name: 'Contact', id: 'contact' },
     ];
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const root = document.documentElement;
+            if (window.scrollY > 50) {
+                root.classList.add('scrolled');
+            } else {
+                root.classList.remove('scrolled');
+            }
+        }
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [])
+
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        element?.scrollIntoView({ behavior: 'smooth' });
+        setIsMobileMenuOpen(false);
+    }
+
     return (
         <nav className={styles.nav}>
             <div>
                 <button
-                    onClick={() => {}}
+                    onClick={() => scrollToSection('home')}
                     className={styles.logoButton}
                 >
                     <span>
@@ -31,40 +58,62 @@ export default function Navbar() {
                     {navItems.map((item) => (
                         <button
                             key={item.id}
-                            onClick={() => {
-                            }}
+                            onClick={() => scrollToSection(item.id)}
                         >
                             {item.name}
                         </button>
                     ))}
 
                     {/* Theme Toggle */}
+
                     <button
-                        key={item.id}
-                        onClick={() => {
-                        }}
+                        onClick={toggleTheme}
+                        aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
                     >
-                        {item.name}
+                        {/* możesz wstawić ikonę tu bazując na `theme` */}
                     </button>
                 </div>
 
                 {/* Mobile Menu & Theme Toggle */}
                 <div>
                     <button
-                        onClick={}
-                        aria-label=""
+                        onClick={toggleTheme}
+                        aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
                     >
 
                     </button>
 
                     <button
-                        onClick={}
-                        aria-label=""
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                     >
 
                     </button>
                 </div>
 
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className={styles.mobileMenu}
+                            >
+                            <div>
+                                {navItems.map((item) => (
+                                        <button
+                                            key={item.id}
+                                            onClick={() => scrollToSection(item.id)}
+                                            className={styles.mobileNavigationButton}
+                                        >
+                                            {item.name}
+                                        </button>
+                                    ))}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </nav>
     )
