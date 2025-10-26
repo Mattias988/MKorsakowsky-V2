@@ -14,9 +14,9 @@ export default function Page() {
         <div id="home" className="min-h-screen">
           <Navbar />
           <Hero />
-          <About />
+          {/*<About />*/}
           {/*<Skills />*/}
-          <Experience />
+          {/*<Experience />*/}
           {/*<Projects />*/}
           {/*<Contact />*/}
           {/*<Footer />*/}

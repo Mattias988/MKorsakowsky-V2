@@ -24,7 +24,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${rubik.variable} antialiased`}>
                 <ThemeProvider>
-                    <Navbar />
+                    {/*<Navbar />*/}
                     {children}
                 </ThemeProvider>
             </body>

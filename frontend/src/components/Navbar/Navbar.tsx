@@ -42,7 +42,7 @@ export default function Navbar() {
 
     return (
         <nav className={styles.nav}>
-            <div>
+            <div className={styles.navContainer}>
                 <button
                     onClick={() => scrollToSection('home')}
                     className={styles.logoButton}
@@ -54,11 +54,12 @@ export default function Navbar() {
                 </button>
 
                 {/* Desktop Navigation */}
-                <div>
+                <div className={styles.navMenuContainerDesktop}>
                     {navItems.map((item) => (
                         <button
                             key={item.id}
                             onClick={() => scrollToSection(item.id)}
+                            className={styles.navMenuDesktop}
                         >
                             {item.name}
                         </button>
@@ -69,13 +70,14 @@ export default function Navbar() {
                     <button
                         onClick={toggleTheme}
                         aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                        className={styles.toggleTheme}
                     >
                         {/* możesz wstawić ikonę tu bazując na `theme` */}
                     </button>
                 </div>
 
                 {/* Mobile Menu & Theme Toggle */}
-                <div>
+                <div className={styles.navMenuContainerMobile}>
                     <button
                         onClick={toggleTheme}
                         aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
@@ -86,6 +88,7 @@ export default function Navbar() {
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                        className={styles.navMenuMobileButton}
                     >
 
                     </button>
