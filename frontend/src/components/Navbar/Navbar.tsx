@@ -59,7 +59,7 @@ export default function Navbar() {
                         <button
                             key={item.id}
                             onClick={() => scrollToSection(item.id)}
-                            className={styles.navMenuDesktop}
+                            className={styles.navMenuDesktopButton}
                         >
                             {item.name}
                         </button>
@@ -81,6 +81,7 @@ export default function Navbar() {
                     <button
                         onClick={toggleTheme}
                         aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                        className={styles.toggleThemeMobile}
                     >
 
                     </button>
