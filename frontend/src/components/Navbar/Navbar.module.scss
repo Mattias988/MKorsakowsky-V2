@@ -11,36 +11,66 @@
   justify-content: center;
   align-items: center;
 
-  :hover {
 
-
-  }
   .navContainer {
     width: 1440px;
     display: flex;
     padding-inline: 4rem ;
     justify-content: space-between;
     background-color: transparent;
+
     .logoButton {
       background: transparent;
       border: none;
       color: white;
-      font-size: 1rem;
+      font-size: 1.3rem;
+
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 0.25rem;
+      display: inline-block;
+      cursor: pointer;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0.125rem;
+            width: 0%;
+            height: 3px;
+            border-radius: 2px;
+            background-image: linear-gradient(
+            to right,
+                    #60a5fa,  /* blue-400 */
+                    #22d3ee,  /* cyan-400 */
+                    #c084fc   /* purple-400 */
+            );
+            transition: width 500ms ease;
+            will-change: width;
+        }
+
+        &:hover::after,
+        &:focus::after {
+            width: 100%;
+        }
     }
 
     .navMenuContainerDesktop{
 
+
       .navMenuDesktopButton{
+        padding-inline: 1.2rem ;
         background: transparent;
+        transition: background-color 200ms ease;
+        will-change: background-color;
         border: none;
         color: white;
         font-size: 1rem;
+        padding-block: 0.6rem;
+        border-radius: 0.5rem;
 
-        :hover {
-          background-color: rgba(#fff, 0.1);
-          padding-inline: 4rem ;
-          padding-block: 0.2rem;
-          border-radius: 0.2rem;
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
         }
       }
 
