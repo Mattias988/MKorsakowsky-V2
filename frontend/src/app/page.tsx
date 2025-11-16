@@ -3,7 +3,6 @@
 import Hero from '@/sections/Hero/Hero';
 import About from "@/sections/About/About";
 import Experience from "@/sections/Experience/Experience";
-import '@/styles/main.scss';
 import { ThemeProvider } from '@/components/ThemeProvider/ThemeProvider';
 import Navbar from '@/components/Navbar/Navbar';
 
@@ -14,7 +13,7 @@ export default function Page() {
         <div id="home" className="min-h-screen">
           <Navbar />
           <Hero />
-          {/*<About />*/}
+          <About />
           {/*<Skills />*/}
           {/*<Experience />*/}
           {/*<Projects />*/}
