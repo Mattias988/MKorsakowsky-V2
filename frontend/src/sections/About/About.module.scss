@@ -1,0 +1,58 @@
+.aboutSection{
+  padding-block: 4rem;
+  background-image: var(--color-primary);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3rem;
+
+  .titleWithDescContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+
+    .titleContainer {
+      gap: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .firstTitleLine {
+        background-image: linear-gradient(to left, var(--accent-blue), transparent);        height: 1px;
+        width: 40px;
+      }
+
+      .secondTitleLine {
+        background-image: linear-gradient(to right, var(--accent-purple), transparent);        height: 1px;
+        width: 40px;
+      }
+    }
+
+    .descContainer {
+      .sectionDesc{
+        color: var(--muted-foreground);
+      }
+    }
+  }
+
+  .contentContainer {
+    display: flex;
+
+    .imageContainer {
+      flex: 1;
+    }
+
+    .textContainer {
+      flex: 1;
+
+      .sectionTitle {
+        text-align: left;
+      }
+      .sectionDesc {
+        text-align: left;
+      }
+    }
+  }
+}
