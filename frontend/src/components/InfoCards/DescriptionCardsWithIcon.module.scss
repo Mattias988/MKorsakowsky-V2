@@ -1,0 +1,24 @@
+.descriptionCardContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+
+  .iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titleContainer {
+
+    h4 {
+
+    }
+  }
+
+  .descriptionContainer {
+
+  }
+}
