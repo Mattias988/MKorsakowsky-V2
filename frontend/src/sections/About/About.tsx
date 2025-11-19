@@ -2,6 +2,25 @@
 
 
 import styles from './About.module.scss'
+import DescriptionCardsWithIcon from "../../components/InfoCards/DescriptionCardsWithIcon";
+
+const Cards = [
+    {
+        title: "Clean Code",
+        description: "Writing maintainable, scalable, and efficient code following best practices.",
+        iconSrc: "../../assets/icons/clean-code-icon.png"
+    },
+    {
+        title: "Responsive Design",
+        description: "Creating user-friendly interfaces that adapt seamlessly to various devices and screen sizes.",
+        iconSrc: "../../assets/icons/responsive-design-icon.png"
+    },
+    {
+        title: "Performance Optimization",
+        description: "Enhancing application speed and efficiency for a smooth user experience.",
+        iconSrc: "../../assets/icons/performance-optimization-icon.png"
+    }
+]
 
 export default function About() {
 
@@ -35,6 +54,12 @@ export default function About() {
                     </p>
                 </div>
             </div>
+
+            {Cards.map((card, index) => (
+            <div className={styles.cardsContainer}>
+                <DescriptionCardsWithIcon key={index} title={card.title} description={card.description} iconSrc={card.iconSrc}/>
+            </div>
+            ))}
         </section>
     );
 }
