@@ -1,24 +1,25 @@
 'use client';
 
-
 import styles from './About.module.scss'
 import DescriptionCardsWithIcon from "../../components/InfoCards/DescriptionCardsWithIcon";
+// 1. Import komponentu 3D
+import Avatar3D from "../../components/Avatar/Avatar";
 
 const Cards = [
     {
         title: "Clean Code",
         description: "Writing maintainable, scalable, and efficient code following best practices.",
-        iconSrc: "../../assets/icons/clean-code-icon.png"
+        iconSrc: "../../public/icons/clean-code-icon.png"
     },
     {
         title: "Responsive Design",
         description: "Creating user-friendly interfaces that adapt seamlessly to various devices and screen sizes.",
-        iconSrc: "../../assets/icons/responsive-design-icon.png"
+        iconSrc: "../../public/icons/responsive-design-icon.png"
     },
     {
         title: "Performance Optimization",
         description: "Enhancing application speed and efficiency for a smooth user experience.",
-        iconSrc: "../../assets/icons/performance-optimization-icon.png"
+        iconSrc: "../../public/icons/performance-optimization-icon.png"
     }
 ]
 
@@ -40,9 +41,11 @@ export default function About() {
             </div>
 
             <div className={styles.contentContainer}>
+                {/* 2. Podmiana w tym miejscu */}
                 <div className={styles.imageContainer}>
-                    <img className={styles.image} src="../../assets/laptop-image.png" alt="Laptop Image" />
+                    <Avatar3D />
                 </div>
+
                 <div className={styles.textContainer}>
                     <h3 className={styles.sectionTitle}>
                         Building digital experiences that matter
@@ -55,11 +58,13 @@ export default function About() {
                 </div>
             </div>
 
-            {Cards.map((card, index) => (
-            <div className={styles.cardsContainer}>
-                <DescriptionCardsWithIcon key={index} title={card.title} description={card.description} iconSrc={card.iconSrc}/>
+            <div className={styles.allCardsContainer}>
+                {Cards.map((card, index) => (
+                    <div key={index} className={styles.cardsContainer}>
+                        <DescriptionCardsWithIcon key={index} title={card.title} description={card.description} iconSrc={card.iconSrc}/>
+                    </div>
+                ))}
             </div>
-            ))}
         </section>
     );
 }

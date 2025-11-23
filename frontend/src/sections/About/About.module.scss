@@ -55,4 +55,24 @@
       }
     }
   }
+
+  .allCardsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imageContainer {
+    // Ustaw konkretną wysokość lub min-height, aby model był widoczny
+    height: 400px; // Przykładowa wysokość - dostosuj do designu
+    width: 100%;   // Lub konkretna szerokość, np. 50%
+    position: relative; // Dobra praktyka dla kontenerów canvas
+
+    // Na mobile może być potrzebna inna wysokość
+    @media (max-width: 768px) {
+      height: 300px;
+      width: 100%;
+    }
+
+    // Usuń style specyficzne dla img, jeśli przeszkadzają
+  }
 }
