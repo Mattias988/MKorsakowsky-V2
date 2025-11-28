@@ -2,8 +2,8 @@
 
 import styles from './About.module.scss'
 import DescriptionCardsWithIcon from "../../components/InfoCards/DescriptionCardsWithIcon";
-// 1. Import komponentu 3D
-import Avatar3D from "../../components/Avatar/Avatar";
+import Image from "next/image";
+import kittyImage from "@/assets/Kitty.webp";
 
 const Cards = [
     {
@@ -41,9 +41,8 @@ export default function About() {
             </div>
 
             <div className={styles.contentContainer}>
-                {/* 2. Podmiana w tym miejscu */}
                 <div className={styles.imageContainer}>
-                    <Avatar3D />
+                    <Image src={kittyImage} alt="About section coding kitty image" placeholder="blur" />
                 </div>
 
                 <div className={styles.textContainer}>
