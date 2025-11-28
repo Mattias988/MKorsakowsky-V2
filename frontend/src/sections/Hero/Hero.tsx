@@ -2,14 +2,20 @@
 
 import { motion } from 'framer-motion';
 import styles from './Hero.module.scss'
-import { ArrowDown, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
-import { Button } from '@/components/Button/button';
+import { ArrowDown, Sparkles } from 'lucide-react';
+import { Button } from '@/components';
+import {heroContent} from "@/data/hero";
+import {socialLinks} from "@/data/socialLinks";
 
 export default function Hero() {
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
         element?.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const {
+        status, titlePrefix, name, role, description, primaryButton, secondaryButton, scrollText
+    } = heroContent;
 
     return (
         <section className={styles.heroSection}>
@@ -34,14 +40,14 @@ export default function Hero() {
                         className={styles.descAndButtonsSection}
                     >
                         <Sparkles className={styles.sparkles} />
-                        <span className={styles.glowingAvailability}>Available for freelance projects</span>
+                        <span className={styles.glowingAvailability}>{status}</span>
                     </motion.div>
 
                     <h1>
-                        Hi, I'm{' '}
+                        {titlePrefix}{' '}
                         <span className={styles.introduceMyself}>
                           <span className={styles.myFullName}>
-                            Maciej Korsakowski
+                                {name}
                           </span>
                           <motion.span
                               className={styles.underline}
@@ -53,7 +59,7 @@ export default function Hero() {
                     </h1>
 
                     <p className={styles.heroDescription}>
-                        A passionate <span className={styles.myPosition}>Full Stack Developer</span> crafting beautiful, functional, and user-centric digital experiences.
+                        A passionate <span className={styles.myPosition}>{role}</span> crafting beautiful, functional, and user-centric digital experiences.
                         Specialized in React, Node.js, and modern web technologies.
                     </p>
 
@@ -63,43 +69,32 @@ export default function Hero() {
                             size="lg"
                             className={styles.myWorkButton}
                         >
-                            View My Work
+                            {primaryButton}
                         </Button>
                         <Button
                             onClick={() => scrollToSection('contact')}
                             variant="outline"
                             size="lg"
                             className={styles.getInTouchButton}                        >
-                            Get In Touch
+                            {secondaryButton}
                         </Button>
                     </div>
 
                     <div className={styles.socialIcons}>
-                        <motion.a
-                            whileHover={{ scale: 1.1, y: -2 }}
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.iconContainer}
-                        >
-                            <Github className={styles.icon} />
-                        </motion.a>
-                        <motion.a
-                            whileHover={{ scale: 1.1, y: -2 }}
-                            href="https://linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.iconContainer}
-                        >
-                            <Linkedin className={styles.icon} />
-                        </motion.a>
-                        <motion.a
-                            whileHover={{ scale: 1.1, y: -2 }}
-                            href="mailto:alex@example.com"
-                            className={styles.iconContainer}
-                        >
-                            <Mail className={styles.icon} />
-                        </motion.a>
+                        {socialLinks.map((social) => (
+                            <motion.a
+                                key={social.id}
+                                whileHover={{ scale: 1.1, y: -2 }}
+                                transition={{ duration: 0.01 }}
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.iconContainer}
+                                aria-label={social.label}
+                            >
+                                <social.icon className={styles.icon} />
+                            </motion.a>
+                        ))}
                     </div>
                 </motion.div>
 
@@ -111,7 +106,7 @@ export default function Hero() {
                     onClick={() => scrollToSection('about')}
                 >
                     <div style={{ display:"flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-                        <span className={styles.scrollText}>Scroll to explore</span>
+                        <span className={styles.scrollText}>{scrollText}</span>
                         <ArrowDown className={styles.arrowDownIcon} />
                     </div>
                 </motion.div>

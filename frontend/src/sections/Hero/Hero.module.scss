@@ -1,3 +1,5 @@
+@use '@/styles/abstracts/variables' as v;
+
 .heroSection {
   width: 100%;
   height: 100vh;
@@ -6,14 +8,14 @@
   justify-content: center;
   align-items: center;
   font-size: 14px;
-  background: linear-gradient(to bottom right, #020617, #0f172a, #020617);
+  background: v.$hero-bg;
   text-align: center;
 
   .overlay{
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
-    linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+    background-image: linear-gradient(to right, v.$hero-grid 1px, transparent 1px),
+    linear-gradient(to bottom, v.$hero-grid 1px, transparent 1px);
     opacity: 20%;
     background-size: 4rem 4rem;
   }
@@ -31,332 +33,219 @@
       }
     }
 
-    .firstBulb{
+    %bulb-base {
       position: absolute;
+      border-radius: 50%;
+      filter: blur(64px);
+    }
+
+    .firstBulb{
+      @extend %bulb-base;
       top:25%;
       left:25%;
       width:24rem;
       height:24rem;
-      background-color: rgb(37 99 235 / 0.3);
-      border-radius: 50%;
-      filter: blur(64px);
+      background-color: v.$glow-blue;
       animation: pulse 6s infinite;
     }
 
     .secondBulb{
-      position: absolute;
+      @extend %bulb-base;
       bottom: 25%;
       right: 25%;
       height: 24rem; /* 384px */
       width: 24rem; /* 384px */
-      border-radius: 50%;
-      background-color: rgb(147 51 234 / 0.3);
-      filter: blur(64px);
+      background-color: v.$glow-purple;
       animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
     .thirdBulb{
-      position: absolute;
+      @extend %bulb-base;
       top: 50%;
       left: 50%;
       width: 24rem; /* 384px */
       height: 24rem; /* 384px */
-      border-radius: 50%;
-      background-color: rgb(8 145 178 / 0.2);
-      filter: blur(64px);
+      background-color: v.$glow-cyan;
       animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
   }
 
-  .contentHero{
+  .contentHero {
     position: relative;
     z-index: 10;
-    max-width: 7xl;
+    max-width: 80rem;
     margin-inline: auto;
-    padding:20px 6px;
-    text-align: center;
+    padding: 20px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    .descAndButtonsSection{
+    .descAndButtonsSection {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 9999px;
       margin-bottom: 2rem;
-      background-color: rgb(59 130 246 / 0.1);
-      border: 1px solid rgb(59 130 246 / 0.2);
-      -webkit-backdrop-filter: blur(4px);
+
+      // Glassmorphism Variables
+      background-color: v.$glass-bg;
+      border: 1px solid v.$glass-border;
+      color: v.$glass-text;
+
       backdrop-filter: blur(4px);
-      color: #93c5fd;
-
-
-      @media (prefers-color-scheme: dark) {
-        .descAndButtonsSection {
-          background-color: rgb(59 130 246 / 0.2);
-          border-color: rgb(96 165 250 / 0.3);
-        }
-      }
+      -webkit-backdrop-filter: blur(4px);
     }
 
     .sparkles {
-      width:16px;
-      height:16px;
-      color:rgb(59 130 246 / 0.2);
-
-      @media (prefers-color-scheme: dark) {
-        .sparkles {
-          background-color: rgb(59 130 246 / 0.2);
-          border-color: rgb(96 165 250 / 0.3);
-        }
-      }
-    }
-
-    .glowingAvailability{
-      color:blue-300/100;
-
-      @media (prefers-color-scheme: dark) {
-        .glowingAvailability {
-          color: blue-200/100;
-        }
-      }
+      width: 16px;
+      height: 16px;
+      color: inherit;
     }
 
     h1 {
-      color:white;
+      color: v.$hero-text-main;
       margin-bottom: 24px;
       line-height: 1.25;
+      font-size: 2.5rem;
+      font-weight: 700;
 
-      .introduceMyself{
+      .introduceMyself {
         position: relative;
         display: inline-block;
+        margin-left: 0.5rem;
       }
 
-      .myFullName{
-        color:transparent;
+      .myFullName {
+        background: v.$gradient-main;
         -webkit-background-clip: text;
         background-clip: text;
-        background-image: linear-gradient(
-                        to right,
-                        #60a5fa,  /* blue-400 */
-                        #22d3ee,  /* cyan-400 */
-                        #c084fc   /* purple-400 */
-        );
+        color: transparent;
       }
-      .underline{
+
+      .underline {
         position: absolute;
         bottom: 2px;
         left: 0;
         right: 0;
         height: 4px;
         border-radius: 999px;
-        background-image: linear-gradient(
-                        to right,
-                        #60a5fa,  /* blue-400 */
-                        #22d3ee,  /* cyan-400 */
-                        #c084fc   /* purple-400 */
-        );
+        background: v.$gradient-main;
       }
     }
 
-    .heroDescription{
-      color: rgb(203 213 225); /* #cbd5e1 */
+    .heroDescription {
+      color: v.$hero-text-muted;
       font-size: 1.25rem;
       max-width: 48rem;
-      margin-left: auto;
-      margin-right: auto;
       margin-bottom: 3rem;
       line-height: 1.625;
 
-      @media (prefers-color-scheme: dark) {
-        .heroDescription {
-          color: rgb(226 232 240); /* #e2e8f0 */
+      .myPosition {
+        color: v.$text-accent;
+        font-weight: 600;
+      }
+    }
+
+    // --- BUTTONS & SOCIALS ---
+    .heroSocialsContainer {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 36px;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      .myWorkButton {
+        background-image: linear-gradient(to right, #2563eb, #9333ea);
+        color: white;
+        transition: all 0.2s ease;
+
+        &:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+          box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
         }
       }
 
-      .myPosition{
-        color:#22d3ee;
+      .getInTouchButton {
+        // Style outline
+        border: 1px solid v.$text-secondary;
+        color: v.$text-primary;
+        background: transparent;
 
-        @media (prefers-color-scheme: dark) {
-          .myPosition {
-            color: #22d3ee;
-          }
+        &:hover {
+          background-color: v.$glass-bg;
+          border-color: v.$text-primary;
         }
       }
     }
 
-    .heroSocialsContainer{
-        display: flex;
-        justify-content: center;
-        margin-bottom: 36px;
-        text-wrap: wrap;
-        gap: 1rem;
-
-      .myWorkButton{
-        background-image: linear-gradient(to right, rgb(37 99 235), rgb(147 51 234));
-        box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.5),
-        0 4px 6px -4px rgb(59 130 246 / 0.5);
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-        transition-duration: 150ms;
-        color: black;
-
-        &:hover {
-          background-image: linear-gradient(to right, rgb(29 78 216), rgb(126 34 206));
-
-          box-shadow: 0 20px 25px -5px rgb(59 130 246 / 0.5),
-          0 8px 10px -6px rgb(59 130 246 / 0.5);
-        }
-
-        @media (prefers-color-scheme: dark) {
-          box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.3),
-          0 4px 6px -4px rgb(59 130 246 / 0.3);
-
-          &:hover {
-            box-shadow: 0 20px 25px -5px rgb(59 130 246 / 0.4),
-            0 8px 10px -6px rgb(59 130 246 / 0.4);
-          }
-        }
-      }
-
-      .getInTouchButton{
-        color: rgb(255 255 255);
-        border-color: rgb(71 85 105); /* #475569 */
-
-        -webkit-backdrop-filter: blur(4px);
-        backdrop-filter: blur(4px);
-
-        &:hover {
-          background-color: rgb(255 255 255 / 0.1);
-
-          border-color: rgb(100 116 139); /* #64748b */
-        }
-
-        @media (prefers-color-scheme: dark) {
-
-          border-color: rgb(100 116 139); /* #64748b */
-
-          &:hover {
-            border-color: rgb(148 163 184); /* #94a3b8 */
-          }
-        }
-      }
-
-    }
-
-    .socialIcons{
+    .socialIcons {
       display: flex;
       gap: 1rem;
       justify-content: center;
 
-      .iconContainer{
-        width: 3rem;  /* 48px */
-        height: 3rem; /* 48px */
-
+      .iconContainer {
+        width: 3rem;
+        height: 3rem;
         display: flex;
         align-items: center;
         justify-content: center;
-
         border-radius: 0.75rem;
 
-        -webkit-backdrop-filter: blur(4px);
+        // Glass style for icons
+        background-color: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: v.$text-secondary;
+
         backdrop-filter: blur(4px);
-
-        border: 1px solid;
-
-        transition-property: color, background-color, border-color;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-        transition-duration: 150ms;
-
-        background-color: rgb(30 41 59 / 0.5);
-        border-color: rgb(51 65 85);
-        color: rgb(203 213 225);
-
+        transition: all 0.2s ease;
 
         &:hover {
-          color: rgb(255 255 255);
-          background-color: rgb(51 65 85 / 0.5);
+          color: v.$text-primary;
+          background-color: rgba(51, 65, 85, 0.8);
+          transform: translateY(-2px);
         }
 
-
-        /* --- Dark Mode --- */
-        @media (prefers-color-scheme: dark) {
-
-          background-color: rgb(30 41 59 / 0.7);
-          border-color: rgb(71 85 105);
-          color: rgb(226 232 240);
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
 
           &:hover {
-            background-color: rgb(51 65 85 / 0.7);
+            color: v.$bg-primary;
           }
-        }
-
-        .icon{
-            width: 1.5rem;  /* 24px */
-            height: 1.5rem; /* 24px */
         }
       }
     }
 
-    .scrollDownIndicatorContainer{
+    // --- SCROLL INDICATOR ---
+    .scrollDownIndicatorContainer {
       position: absolute;
-      bottom: -4rem;
+      bottom: -6rem;
       left: 50%;
       transform: translateX(-50%);
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
 
-      .scrollText{
+      .scrollText {
         font-size: 0.875rem;
-        line-height: 1.25rem; // Klasa text-sm ustawia też domyślną interlinię
+        color: v.$text-secondary;
+      }
 
-        color: rgb(148 163 184); // #94a3b8
-
-        @media (prefers-color-scheme: dark) {
-          color: rgb(203 213 225); // #cbd5e1
-        }
+      .arrowDownIcon {
+        width: 1.25rem;
+        height: 1.25rem;
+        color: v.$text-secondary;
+        animation: bounce 2s infinite;
       }
 
       @keyframes bounce {
-        0%, 100% {
-          transform: translateY(-25%);
-          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-        }
-        50% {
-          transform: translateY(0);
-          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-        }
-      }
-
-      .arrowDownIcon{
-        width: 1.25rem;  /* 20px */
-        height: 1.25rem; /* 20px */
-        animation: bounce 1s infinite;
-        color: rgb(148 163 184); // #94a3b8
-
-        @media (prefers-color-scheme: dark) {
-          color: rgb(203 213 225); // #cbd5e1
-        }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-25%); }
       }
     }
   }
-
-  .typewriter {
-    width: 70%;
-    font-size: 14px;
-    color: #ffffff;
-    text-align: center;
-    word-wrap: break-word;
-    display: inline-block;
-    white-space: normal;
-    line-height: 1.2;
-  }
-
-  .Typewriter__cursor {
-    display: inline-block;
-    color: #00ffcc;
-    animation: blink 1s infinite;
-  }
-
 }
