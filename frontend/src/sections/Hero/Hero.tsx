@@ -59,8 +59,7 @@ export default function Hero() {
                     </h1>
 
                     <p className={styles.heroDescription}>
-                        A passionate <span className={styles.myPosition}>{role}</span> crafting beautiful, functional, and user-centric digital experiences.
-                        Specialized in React, Node.js, and modern web technologies.
+                        {description(styles.myPosition)}
                     </p>
 
                     <div className={styles.heroSocialsContainer}>

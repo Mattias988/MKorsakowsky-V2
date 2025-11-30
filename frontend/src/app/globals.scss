@@ -27,7 +27,7 @@
 
   --glass-bg:           rgba(59, 130, 246, 0.1);
   --glass-border:       rgba(59, 130, 246, 0.2);
---glass-text:           #{v.$raw-blue-500};
+  --glass-text:         #{v.$raw-blue-500};
 
   --gradient-main:      linear-gradient(to right, #{v.$raw-blue-500}, #{v.$raw-cyan-400}, #{v.$raw-purple-400});
   --glow-blue:          rgba(37, 99, 235, 0.3);

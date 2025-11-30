@@ -1,15 +1,12 @@
-// components/ui/Button.tsx
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx"; // Używamy clsx
 
-// Importuj nasze style SCSS
 import styles from "./Button.module.scss";
 
-// Definicja wariantów CVA mapująca na klasy SCSS
 const buttonVariants = cva(
-    styles.button, // Podstawowa klasa .button
+    styles.button,
     {
         variants: {
             variant: {
@@ -34,7 +31,6 @@ const buttonVariants = cva(
     }
 );
 
-// Definicja propsów
 export interface ButtonProps
     extends React.ComponentProps<"button">,
         VariantProps<typeof buttonVariants> {
@@ -45,7 +41,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, asChild = false, children, ...props }, ref) => {
         const Comp = asChild ? Slot : "button";
 
-        // Sprawdza, czy jedynym dzieckiem jest SVG (dla logiki `has-[>svg]`)
         const hasSvg =
             size !== "icon" &&
             React.Children.count(children) === 1 &&
@@ -58,8 +53,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 data-slot="button"
                 className={clsx(
                     buttonVariants({ variant, size }),
-                    hasSvg && styles["has-svg"], // Dodatkowa klasa dla `has-[>svg]`
-                    className // Inne klasy przekazane z zewnątrz
+                    hasSvg && styles["has-svg"],
+                    className
                 )}
                 ref={ref}
                 {...props}
