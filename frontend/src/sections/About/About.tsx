@@ -4,24 +4,7 @@ import styles from './About.module.scss'
 import DescriptionCardsWithIcon from "../../components/InfoCards/DescriptionCardsWithIcon";
 import Image from "next/image";
 import kittyImage from "@/assets/Kitty.webp";
-
-const Cards = [
-    {
-        title: "Clean Code",
-        description: "Writing maintainable, scalable, and efficient code following best practices.",
-        iconSrc: "../../public/icons/clean-code-icon.png"
-    },
-    {
-        title: "Responsive Design",
-        description: "Creating user-friendly interfaces that adapt seamlessly to various devices and screen sizes.",
-        iconSrc: "../../public/icons/responsive-design-icon.png"
-    },
-    {
-        title: "Performance Optimization",
-        description: "Enhancing application speed and efficiency for a smooth user experience.",
-        iconSrc: "../../public/icons/performance-optimization-icon.png"
-    }
-]
+import { cards } from '@/data/cards';
 
 export default function About() {
 
@@ -58,7 +41,7 @@ export default function About() {
             </div>
 
             <div className={styles.allCardsContainer}>
-                {Cards.map((card, index) => (
+                {cards.map((card, index) => (
                     <div key={index} className={styles.cardsContainer}>
                         <DescriptionCardsWithIcon key={index} title={card.title} description={card.description} iconSrc={card.iconSrc}/>
                     </div>
