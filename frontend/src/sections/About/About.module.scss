@@ -1,10 +1,12 @@
 .aboutSection{
   padding-block: 4rem;
   background-image: var(--color-primary);
-  width: 100%;
+  width: 1540px;
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
+  justify-self: center;
   gap: 3rem;
 
   .titleWithDescContainer {
@@ -42,6 +44,11 @@
 
     .imageContainer {
       flex: 1;
+      height:100%;
+
+      .kittyImage {
+        border-radius: 3%;
+      }
     }
 
     .textContainer {

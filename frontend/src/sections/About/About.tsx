@@ -13,7 +13,7 @@ export default function About() {
             <div className={styles.titleWithDescContainer}>
                 <div className={styles.titleContainer}>
                     <div className={styles.firstTitleLine}/>
-                    <h2 className={styles.sectionTitle}>About Me</h2>
+                        <h2 className={styles.sectionTitle}>About Me</h2>
                     <div className={styles.secondTitleLine}/>
                 </div>
                 <div className={styles.descContainer}>
@@ -25,7 +25,7 @@ export default function About() {
 
             <div className={styles.contentContainer}>
                 <div className={styles.imageContainer}>
-                    <Image src={kittyImage} alt="About section coding kitty image" placeholder="blur" />
+                    <Image src={kittyImage} alt="About section coding kitty image" placeholder="blur" className={styles.kittyImage}/>
                 </div>
 
                 <div className={styles.textContainer}>
@@ -43,7 +43,7 @@ export default function About() {
             <div className={styles.allCardsContainer}>
                 {cards.map((card, index) => (
                     <div key={index} className={styles.cardsContainer}>
-                        <DescriptionCardsWithIcon key={index} title={card.title} description={card.description} iconSrc={card.iconSrc}/>
+                        <DescriptionCardsWithIcon key={index} title={card.title} description={card.description} icon={card.icon} />
                     </div>
                 ))}
             </div>
