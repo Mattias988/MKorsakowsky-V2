@@ -29,6 +29,15 @@ export interface HeroContent {
     scrollText: string;
 }
 
+export interface AboutInfo {
+    title: string;
+    description: string;
+    detailedInfo: {
+        heading: string;
+        paragraphs: string[];
+    };
+}
+
 export interface Experience {
     id: number;
     company: string;

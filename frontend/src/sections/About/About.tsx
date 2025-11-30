@@ -5,20 +5,23 @@ import DescriptionCardsWithIcon from "../../components/InfoCards/DescriptionCard
 import Image from "next/image";
 import kittyImage from "@/assets/Kitty.webp";
 import { cards } from '@/data/cards';
+import {aboutInfo} from "@/data/aboutInfo";
 
 export default function About() {
+
+    const { title, description, detailedInfo } = aboutInfo;
 
     return (
         <section id="about" className={styles.aboutSection}>
             <div className={styles.titleWithDescContainer}>
                 <div className={styles.titleContainer}>
                     <div className={styles.firstTitleLine}/>
-                        <h2 className={styles.sectionTitle}>About Me</h2>
+                        <h2 className={styles.sectionTitle}>{title}</h2>
                     <div className={styles.secondTitleLine}/>
                 </div>
                 <div className={styles.descContainer}>
                     <p className={styles.sectionDesc}>
-                        I'm a developer who loves turning complex problems into simple, beautiful solutions.
+                        {description}
                     </p>
                 </div>
             </div>
@@ -30,12 +33,10 @@ export default function About() {
 
                 <div className={styles.textContainer}>
                     <h3 className={styles.sectionTitle}>
-                        Building digital experiences that matter
+                        {detailedInfo.heading}
                     </h3>
                     <p className={styles.sectionDesc}>
-                        With over 5 years of experience in web development, I've worked with startups and established companies to create impactful digital solutions. My approach combines technical expertise with a keen eye for design, ensuring every project is both functional and beautiful.
-                        <br/><br/>
-                        When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
+                        {detailedInfo.paragraphs}
                     </p>
                 </div>
             </div>
