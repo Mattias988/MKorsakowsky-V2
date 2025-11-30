@@ -89,7 +89,7 @@ export default function Hero() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.iconContainer}
-                                aria-label={social.label}
+                                aria-label={social.name}
                             >
                                 <social.icon className={styles.icon} />
                             </motion.a>

@@ -2,15 +2,15 @@
 
 import Hero from '@/sections/Hero/Hero';
 import About from "@/sections/About/About";
-import Experience from "@/sections/Experience/Experience";
 import { ThemeProvider } from '@/components/ThemeProvider/ThemeProvider';
 import Navbar from '@/components/Navbar/Navbar';
+import styles from '@/app/page.module.scss'
 
 export default function Page() {
 
   return (
       <ThemeProvider>
-        <div id="home" className="min-h-screen">
+        <div id="home" className={styles.pageView}>
           <Navbar />
           <Hero />
           <About />
