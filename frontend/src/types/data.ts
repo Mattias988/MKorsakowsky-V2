@@ -3,7 +3,7 @@ import {JSX} from "react";
 
 export interface SocialLink {
     id: number;
-    label: string;
+    name: string;
     url: string;
     icon: LucideIcon;
 }

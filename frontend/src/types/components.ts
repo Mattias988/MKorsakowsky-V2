@@ -1,6 +1,7 @@
+import {LucideIcon} from "lucide-react";
 
 export interface Card {
     title: string;
     description: string;
-    iconSrc: string;
+    icon: LucideIcon;
 }
