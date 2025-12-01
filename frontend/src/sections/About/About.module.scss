@@ -22,12 +22,14 @@
       align-items: center;
 
       .firstTitleLine {
-        background-image: linear-gradient(to left, var(--accent-blue), transparent);        height: 1px;
+        background-image: linear-gradient(to left, var(--accent-blue), transparent);
+        height: 1px;
         width: 40px;
       }
 
       .secondTitleLine {
-        background-image: linear-gradient(to right, var(--accent-purple), transparent);        height: 1px;
+        background-image: linear-gradient(to right, var(--accent-purple), transparent);
+        height: 1px;
         width: 40px;
       }
     }
@@ -48,6 +50,9 @@
 
       .kittyImage {
         border-radius: 3%;
+        height: 300px;
+        width: 100%;
+        position: relative;
       }
     }
 
@@ -67,10 +72,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+
+    .cardsContainer {
+
+    }
   }
   .imageContainer {
     // Ustaw konkretną wysokość lub min-height, aby model był widoczny
-    height: 400px; // Przykładowa wysokość - dostosuj do designu
+    height: 200px; // Przykładowa wysokość - dostosuj do designu
     width: 100%;   // Lub konkretna szerokość, np. 50%
     position: relative; // Dobra praktyka dla kontenerów canvas
 

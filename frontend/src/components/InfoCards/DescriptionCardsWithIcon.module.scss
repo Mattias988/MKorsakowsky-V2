@@ -1,24 +1,44 @@
+@use '@/styles/abstracts/variables' as v;
+
 .descriptionCardContainer {
-  width: 100%;
-  height: 100%;
+  width: 20rem;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  border: 1px solid v.$raw-slate-200;
+  padding: 2rem;
+  border-radius: 1rem;
 
-
+  &:hover {
+    box-shadow: 0 15px 25px -5px v.$glow-blue;
+    border-color: v.$raw-blue-400;
+    transition: all 0.3s ease-in-out;
+  }
   .iconContainer {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+
+    .icon {
+      background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
+      padding: 1rem;
+      border-radius: 1rem;
+      color: white;
+      box-shadow: 0 15px 20px -2px v.$glow-cyan;
+    }
   }
 
   .titleContainer {
-
+    display: flex;
+    justify-content: start;
     h4 {
 
     }
   }
 
   .descriptionContainer {
-
+    flex-grow: 0;
+    text-wrap: wrap;
+    text-align: start;
   }
 }

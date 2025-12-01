@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './DescriptionCardsWithIcon.module.scss';
 import {Card} from "@/types/components";
 
-export default function DescriptionCardsWithIcon({title ="Clean Code", description="Writing maintainable, scalable, and efficient code following best practices.\n", icon: Icon}: Card) {
+export default function DescriptionCardsWithIcon({title, description, icon: Icon}: Card) {
 
     return (
         <div className={styles.descriptionCardContainer}>
