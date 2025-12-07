@@ -46,3 +46,9 @@ export interface Experience {
     endDate: string;
     description: string[];
 }
+
+export interface SkillsAndExpertiseTitleAndDesc {
+    title: string;
+    description: string;
+    skills: string[];
+}
