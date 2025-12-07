@@ -1,0 +1,33 @@
+@use '../../styles/abstracts/variables' as v;
+
+.titleWithDescContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  max-width: 800px;
+
+  .titleContainer {
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .firstTitleLine, .secondTitleLine{
+      height: 1px;
+      width: 40px;
+    }
+    .firstTitleLine {
+      background-image: linear-gradient(to left, v.$raw-blue-500, transparent);
+    }
+    .secondTitleLine {
+      background-image: linear-gradient(to right, v.$raw-purple-600, transparent);
+    }
+  }
+
+  .descContainer {
+    .sectionDesc{
+      color: v.$raw-slate-400;
+    }
+  }
+}
