@@ -1,0 +1,15 @@
+@use 'variables' as v;
+
+@mixin section-defaults {
+  padding-block: 4rem;
+  background-color: v.$bg-primary;
+  width: 100%;
+  max-width: 1540px;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
