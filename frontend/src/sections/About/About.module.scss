@@ -1,69 +1,59 @@
+@use '@/styles/abstracts/variables' as v;
+
 .aboutSection{
-  padding-block: 4rem;
-  background-image: var(--color-primary);
-  width: 1540px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  justify-self: center;
-  gap: 3rem;
-
-  .titleWithDescContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-
-    .titleContainer {
-      gap: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .firstTitleLine {
-        background-image: linear-gradient(to left, var(--accent-blue), transparent);
-        height: 1px;
-        width: 40px;
-      }
-
-      .secondTitleLine {
-        background-image: linear-gradient(to right, var(--accent-purple), transparent);
-        height: 1px;
-        width: 40px;
-      }
-    }
-
-    .descContainer {
-      .sectionDesc{
-        color: var(--muted-foreground);
-      }
-    }
-  }
+  @include section-defaults;
 
   .contentContainer {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    flex-direction: column;
+
+
+    @media(min-width: 768px) {
+      flex-direction: row;
+    }
 
     .imageContainer {
       flex: 1;
-      height:100%;
+      width:100%;
+      display:flex;
+      justify-content: center;
+      filter:
+              drop-shadow(-4px -4px 25px rgba(v.$raw-purple-600, 0.25))
+              drop-shadow(4px 4px 25px rgba(v.$raw-blue-400, 0.25));
 
       .kittyImage {
         border-radius: 3%;
-        height: 500px;
-        width: 500px;
-        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+        object-fit: cover;
       }
     }
 
     .textContainer {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      text-align: center;
+      @media(min-width: 768px) {
+        text-align: left;
+        padding-inline: 1rem;
+      }
 
       .sectionTitle {
         text-align: left;
+        font-weight: normal;
+        color: v.$raw-slate-800;
+        font-size: 1rem;
       }
       .sectionDesc {
         text-align: left;
+        color: v.$raw-slate-400;
+        font-size: 1.10rem;
       }
     }
   }
@@ -71,25 +61,28 @@
   .allCardsContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 2rem;
+    width: 100%;
+
+    flex-wrap: wrap;
 
     .cardsContainer {
-
+      display: flex;
+      flex-direction: column;
+      height: auto;
     }
   }
   .imageContainer {
-    // Ustaw konkretną wysokość lub min-height, aby model był widoczny
-    height: 200px; // Przykładowa wysokość - dostosuj do designu
-    width: 100%;   // Lub konkretna szerokość, np. 50%
-    position: relative; // Dobra praktyka dla kontenerów canvas
+    max-height: 400px;
+    height: 100%;
+    width: 100%;
+    position: relative;
 
-    // Na mobile może być potrzebna inna wysokość
     @media (max-width: 768px) {
       height: 300px;
       width: 100%;
     }
 
-    // Usuń style specyficzne dla img, jeśli przeszkadzają
   }
 }

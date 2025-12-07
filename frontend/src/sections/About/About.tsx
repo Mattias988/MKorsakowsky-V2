@@ -6,6 +6,7 @@ import Image from "next/image";
 import kittyImage from "@/assets/Kitty.webp";
 import { cards } from '@/data/cards';
 import {aboutInfo} from "@/data/aboutInfo";
+import TitleAndDesc from "@/components/TitleAndDesc/TitleAndDesc";
 
 export default function About() {
 
@@ -13,18 +14,7 @@ export default function About() {
 
     return (
         <section id="about" className={styles.aboutSection}>
-            <div className={styles.titleWithDescContainer}>
-                <div className={styles.titleContainer}>
-                    <div className={styles.firstTitleLine}/>
-                        <h2 className={styles.sectionTitle}>{title}</h2>
-                    <div className={styles.secondTitleLine}/>
-                </div>
-                <div className={styles.descContainer}>
-                    <p className={styles.sectionDesc}>
-                        {description}
-                    </p>
-                </div>
-            </div>
+            <TitleAndDesc title={title} description={description} />
 
             <div className={styles.contentContainer}>
                 <div className={styles.imageContainer}>
@@ -36,7 +26,9 @@ export default function About() {
                         {detailedInfo.heading}
                     </h3>
                     <p className={styles.sectionDesc}>
-                        {detailedInfo.paragraphs}
+                        {detailedInfo.paragraphs[0]}
+                        <br/><br/>
+                        {detailedInfo.paragraphs[1]}
                     </p>
                 </div>
             </div>
