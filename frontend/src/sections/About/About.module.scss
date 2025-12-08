@@ -1,7 +1,8 @@
 @use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as mixins;
 
 .aboutSection{
-  @include section-defaults;
+  @include mixins.section-defaults;
 
   .contentContainer {
     display: flex;
