@@ -1,46 +1,61 @@
 @use '@/styles/abstracts/variables' as v;
 
-.descriptionCardContainer {
-  width: 100%;
-  height: 100%;
-  max-width: 300px;
+.skillCardsContainer {
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: start;
   border: 1px solid v.$raw-slate-200;
   padding: 2rem;
   border-radius: 1rem;
+  gap: 1.5rem;
 
   &:hover {
     box-shadow: 0 15px 25px -5px v.$glow-blue;
     border-color: v.$raw-blue-400;
     transition: all 0.3s ease-in-out;
   }
-  .iconContainer {
+  .skillCardContainer {
     display: flex;
-    justify-content: start;
-    align-items: center;
+    gap: 1rem;
 
-    .icon {
-      background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
-      padding: 1rem;
-      border-radius: 1rem;
-      color: white;
-      box-shadow: 0 15px 20px -2px v.$glow-cyan;
+    .iconContainer {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      .icon {
+        background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
+        padding: 1rem;
+        border-radius: 1rem;
+        color: white;
+        box-shadow: 0 15px 20px -2px v.$glow-cyan;
+      }
     }
-  }
 
-  .titleContainer {
-    display: flex;
-    justify-content: start;
-    h4 {
-
+    .titleContainer {
+      display: flex;
+      justify-content: start;
+      h4 {
+        font-weight: lighter;
+      }
     }
   }
 
   .skillsContainer {
-    flex-grow: 1;
-    text-wrap: wrap;
-    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .skillContainer {
+      text-wrap: wrap;
+      text-align: start;
+      border: 1px solid v.$glass-border;
+      border-radius: 1rem;
+      width: fit-content;
+      padding-inline: 1rem;
+    }
   }
+
 }
