@@ -1,6 +1,19 @@
 @use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as mixins;
 
 .skillsSection{
-  @include section-defaults;
+  @include mixins.section-defaults;
+  width: 100%;
 
+  .skillCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+    gap: 1rem;
+
+    @media(max-width: 1420px){
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+  }
 }
