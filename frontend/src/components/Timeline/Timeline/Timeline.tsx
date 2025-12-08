@@ -1,60 +1,56 @@
-'use client'
+// components/Timeline/Timeline.jsx
+import React from 'react';
+import styles from './Timeline.module.scss';
+import { Calendar } from 'lucide-react';
 
-import { motion } from 'framer-motion';
-import styles from "./Timeline.module.scss";
-import TimelineItem from "@/components/Timeline/TimelineItem/TimelineItem";
-
-export interface TimelineEvent {
-    id: string | number;
-    date: string;
-    title?: string;
-    description: string;
-    onSeeMore?: () => void;
-}
-
-interface TimelineProps {
-    items: TimelineEvent[];
-}
-
-export default function Timeline({items}: TimelineProps) {
-    if(!items || items.length === 0) {
-        return null;
-    }
-
-    const lineVariants = {
-        initial: { scaleX: 0 },
-        animate: {
-            scaleX: 1,
-            transition: { duration: 1, ease: 'easeOut', delay: 0.4 },
-        },
-        exit: {
-            scaleX: 0,
-            transition: { duration: 1, ease: 'easeIn' },
-        },
-    };
+const Timeline = ({ data }) => {
+    if (!data) return null;
 
     return (
-        <motion.div
-            className={styles.timelineContainer}
-            variants={lineVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-        >
-            <div
-                className={styles.timeline}
-            >
-                {items.map((item, index) => (
-                    <TimelineItem
-                        key={index}
-                        index={index}
-                        title={item.title}
-                        date={item.date}
-                        description={item.description}
-                        onSeeMore={item.onSeeMore}
-                    />
+        <div className={styles.container}>
+            <div className={styles.timeline}>
+                {data.map((item) => (
+                    <div key={item.id} className={styles.item}>
+                        {/* Kropka */}
+                        <span className={styles.dot}></span>
+
+                        {/* Karta */}
+                        <div className={styles.content}>
+                            <div className={styles.cardHeader}>
+                                <div
+                                    className={styles.iconBox}
+                                    style={{ backgroundColor: item.color || '#6366f1' }}
+                                >
+                                    {item.icon}
+                                </div>
+                                <div className={styles.titleBox}>
+                                    <h3>{item.title}</h3>
+                                    <span className={styles.company}>{item.company}</span>
+                                    <div className={styles.date}>
+                                        <Calendar size={14} />
+                                        <span>{item.date}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p className={styles.description}>{item.description}</p>
+
+                            {item.achievements && (
+                                <div className={styles.achievements}>
+                                    <h4>Key Achievements:</h4>
+                                    <ul>
+                                        {item.achievements.map((achievement, i) => (
+                                            <li key={i}>{achievement}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 ))}
             </div>
-        </motion.div>
-    )
-}
+        </div>
+    );
+};
+
+export default Timeline;
