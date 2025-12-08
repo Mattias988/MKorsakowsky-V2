@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/ThemeProvider/ThemeProvider';
 import Navbar from '@/components/Navbar/Navbar';
 import styles from '@/app/page.module.scss'
 import SkillsAndExpertise from "@/sections/SkillsAndExpertise/SkillsAndExpertise";
+import Experience from "@/sections/Experience/Experience";
 
 export default function Page() {
 
@@ -16,7 +17,7 @@ export default function Page() {
           <Hero />
           <About />
           <SkillsAndExpertise />
-          {/*<Experience />*/}
+          <Experience />
           {/*<Projects />*/}
           {/*<Contact />*/}
           {/*<Footer />*/}
