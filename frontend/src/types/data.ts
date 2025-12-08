@@ -50,5 +50,4 @@ export interface Experience {
 export interface SkillsAndExpertiseTitleAndDesc {
     title: string;
     description: string;
-    skills: string[];
 }

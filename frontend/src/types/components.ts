@@ -11,8 +11,10 @@ export interface TitleAndDescProps {
     description: string;
 }
 
-export interface SkillsAndExpertise {
-    title: string;
-    icon: LucideIcon;
-    skills: [string];
+export interface SkillCard {
+    cardTitle: string,
+    icon: LucideIcon,
+    skills: string[]
 }
+
+export type SkillsAndExpertise = SkillCard[];
