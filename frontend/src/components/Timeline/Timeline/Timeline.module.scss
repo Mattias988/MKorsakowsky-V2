@@ -50,10 +50,9 @@ $line-color: #e5e7eb;
     }
 
     .dot {
-      // Kropka po prawej stronie elementu
-      right: calc(($dot-size / 2) * -1);
-      // Wyjaśnienie: przesuwamy w prawo o połowę szerokości kropki.
-      // Skoro linia jest na 50%, a item kończy się na 50%, to środek kropki wypadnie na linii.
+      right: 0;
+      // I przesuwamy o 50% szerokości samej kropki w prawo
+      transform: translateX(50%);
     }
   }
 
@@ -67,8 +66,9 @@ $line-color: #e5e7eb;
     }
 
     .dot {
-      // Kropka po lewej stronie elementu
-      left: calc(($dot-size / 2) * -1);
+      left: 0;
+      // I przesuwamy o 50% szerokości samej kropki w lewo
+      transform: translateX(-50%);
     }
   }
 }
@@ -85,7 +85,6 @@ $line-color: #e5e7eb;
   z-index: 10;
   box-shadow: 0 0 0 2px rgba($primary-color, 0.2); // Delikatna poświata
 
-  // Ważne: usuwamy transform translate, bo pozycjonujemy precyzyjnie left/right
 }
 
 // WYGLĄD KARTY (CONTENT)
