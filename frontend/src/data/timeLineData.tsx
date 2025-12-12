@@ -1,7 +1,8 @@
 // timelineData.js
 import { Briefcase, Code } from 'lucide-react';
+import { Experiences } from "@/types";
 
-export const experienceData = [
+export const experienceData : Experiences = [
     {
         id: 1,
         title: "Junior Full Stack Java Developer",

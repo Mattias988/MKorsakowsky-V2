@@ -2,8 +2,13 @@
 import React from 'react';
 import styles from './Timeline.module.scss';
 import { Calendar } from 'lucide-react';
+import {Experiences} from "@/types";
 
-const Timeline = ({ data }) => {
+interface TimelineProps {
+    data: Experiences;
+}
+
+export default function Timeline ({ data }: TimelineProps) {
     if (!data) return null;
 
     return (
@@ -53,4 +58,3 @@ const Timeline = ({ data }) => {
     );
 };
 
-export default Timeline;
