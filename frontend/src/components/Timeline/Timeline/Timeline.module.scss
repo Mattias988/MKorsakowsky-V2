@@ -31,6 +31,18 @@ $line-color: #e5e7eb;
   z-index: 0;
 }
 
+.progressLine {
+  position: absolute;
+  width: $line-width;
+  background-color: $primary-color; // Np. #6366f1
+  top: 0;
+  bottom: 0; // Rozciągamy na całą wysokość, ale...
+  left: 50%;
+  transform: translateX(-50%); // Centrowanie
+  z-index: 1; // Musi być nad szarą linią
+  transform-origin: top; // KLUCZOWE: Linia będzie rosła od góry w dół
+}
+
 .item {
   padding: 10px 40px;
   position: relative;
@@ -53,6 +65,11 @@ $line-color: #e5e7eb;
       right: 0;
       // I przesuwamy o 50% szerokości samej kropki w prawo
       transform: translateX(50%);
+    }
+
+    .date{
+      flex-direction: row-reverse;
+      justify-content: flex-start;
     }
   }
 

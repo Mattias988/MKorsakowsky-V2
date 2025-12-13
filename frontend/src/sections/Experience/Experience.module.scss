@@ -1,4 +1,4 @@
-// Experience.module.scss
+@use '@/styles/abstracts/mixins' as mixins;
 
 // Zmienne (dopasuj do swojego theme)
 $primary: #6366f1; // Ten fiolet z obrazka
@@ -12,6 +12,7 @@ $bg-card: #ffffff;
 }
 
 .container {
+  @include mixins.section-defaults;
   max-width: 1200px;
   margin: 0 auto;
 }
