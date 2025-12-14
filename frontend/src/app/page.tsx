@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar/Navbar';
 import styles from '@/app/page.module.scss'
 import SkillsAndExpertise from "@/sections/SkillsAndExpertise/SkillsAndExpertise";
 import Experience from "@/sections/Experience/Experience";
+import FeaturedProjects from "@/sections/FeaturedProjects/FeaturedProjects";
 
 export default function Page() {
 
@@ -18,7 +19,7 @@ export default function Page() {
           <About />
           <SkillsAndExpertise />
           <Experience />
-          {/*<Projects />*/}
+          <FeaturedProjects />
           {/*<Contact />*/}
           {/*<Footer />*/}
         </div>
