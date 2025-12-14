@@ -1,4 +1,3 @@
-// components/Timeline/Timeline.jsx
 import React, {useRef} from 'react';
 import styles from './Timeline.module.scss';
 import { Calendar } from 'lucide-react';
