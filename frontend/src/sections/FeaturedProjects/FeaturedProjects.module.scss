@@ -2,4 +2,16 @@
 
 .featuredProjectsContainer {
   @include mixins.section-defaults;
+
+
+
+  .projectsCardsContainer{
+    width: 1540px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
 }
