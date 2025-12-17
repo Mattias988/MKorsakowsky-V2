@@ -1,15 +1,17 @@
 @use '@/styles/abstracts/mixins' as mixins;
+@use '@/styles/abstracts/variables' as v;
 
 .featuredProjectsContainer {
   @include mixins.section-defaults;
-
+  background-color: v.$raw-slate-200;
 
 
   .projectsCardsContainer{
-    width: 1540px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1540px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     overflow-x: auto;
     padding-bottom: 1rem;
