@@ -1,0 +1,23 @@
+@use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as mixins;
+
+.contactContainer {
+  @include mixins.section-defaults;
+
+  .contactMain {
+    display: flex;
+    gap: 2rem;
+
+    .contactItemsContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+
+    }
+
+    .contactFormContainer {
+
+    }
+  }
+}
