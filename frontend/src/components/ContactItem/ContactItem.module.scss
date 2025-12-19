@@ -1,0 +1,16 @@
+
+.contactItemContainer {
+  display: flex;
+  gap: 1rem;
+
+  .contactItemIcon {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .contactItemInfo {
+    text-align: start;
+
+  }
+}
