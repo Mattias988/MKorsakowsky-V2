@@ -18,6 +18,8 @@ export interface SkillCard {
     skills: string[]
 }
 
+export type SkillsAndExpertise = SkillCard[];
+
 export interface ProjectCardProps {
     title: string;
     description: string;
@@ -27,4 +29,10 @@ export interface ProjectCardProps {
 
 export type ProjectsCards = ProjectCardProps[];
 
-export type SkillsAndExpertise = SkillCard[];
+export interface ContactItemProps {
+    icon: LucideIcon;
+    contactItemTitle: string;
+    contactItemDescription: string;
+}
+
+export type ContactsCards = ContactItemProps[];

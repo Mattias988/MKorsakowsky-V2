@@ -8,6 +8,7 @@ import styles from '@/app/page.module.scss'
 import SkillsAndExpertise from "@/sections/SkillsAndExpertise/SkillsAndExpertise";
 import Experience from "@/sections/Experience/Experience";
 import FeaturedProjects from "@/sections/FeaturedProjects/FeaturedProjects";
+import Contact from '@/sections/Contact/Contact';
 
 export default function Page() {
 
@@ -20,7 +21,7 @@ export default function Page() {
           <SkillsAndExpertise />
           <Experience />
           <FeaturedProjects />
-          {/*<Contact />*/}
+          <Contact />
           {/*<Footer />*/}
         </div>
       </ThemeProvider>
