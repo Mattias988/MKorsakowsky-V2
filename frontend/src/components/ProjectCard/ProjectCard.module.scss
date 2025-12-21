@@ -12,6 +12,7 @@
   flex-direction: column;
   text-align: left;
 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     .image {
@@ -55,7 +56,7 @@
 
     .description {
       font-size: 1rem;
-      color: v.$text-secondary;
+      color: v.$raw-slate-500;
       margin-bottom: 1rem;
     }
 
@@ -65,12 +66,30 @@
       flex-wrap: wrap;
       gap: 0.5rem;
 
+      align-items: center;
+
       .techItem {
         background-color: v.$bg-primary;
         color: v.$raw-blue-500;
-        padding: 0.3rem 0.6rem;
-        border-radius: 4px;
+
+        padding: 0 0.5rem;
+
+        border-radius: 12px;
+        border: 1px solid v.$raw-slate-300;
+
         font-size: 0.9rem;
+        line-height: 1;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          border-color: v.$raw-blue-400;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+          transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
       }
     }
   }
