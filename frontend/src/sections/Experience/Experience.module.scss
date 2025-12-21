@@ -1,14 +1,10 @@
 @use '@/styles/abstracts/mixins' as mixins;
+@use '@/styles/abstracts/variables' as v;
 
-// Zmienne (dopasuj do swojego theme)
-$primary: #6366f1; // Ten fiolet z obrazka
-$text-dark: #1f2937;
-$text-gray: #6b7280;
 $bg-card: #ffffff;
 
 .experienceSection {
   padding: 5rem 1rem;
-  background-color: #f9fafb; // Delikatne tło całej sekcji
 }
 
 .container {
@@ -24,25 +20,24 @@ $bg-card: #ffffff;
   h2 {
     font-size: 2.2rem;
     font-weight: 700;
-    color: $text-dark;
+    color: v.$text-primary;
     margin-bottom: 0.5rem;
   }
 
   p {
-    color: $text-gray;
+    color: v.$raw-slate-600;
     font-size: 1.1rem;
   }
 }
 
-// --- Style Karty (Wnętrze Timeline'a) ---
 
 .card {
   background: $bg-card;
-  border-radius: 16px; // Nowoczesne zaokrąglenie
+  border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.03); // Subtelna ramka
+  border: 1px solid rgba(0,0,0,0.03);
 
   &:hover {
     transform: translateY(-5px);
@@ -61,12 +56,12 @@ $bg-card: #ffffff;
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  background-color: $primary;
+  background-color: v.$raw-purple-400;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px -1px rgba($primary, 0.3); // Fioletowa poświata pod ikoną
+  box-shadow: 0 4px 6px -1px rgba(v.$raw-purple-400, 0.3);
 }
 
 .headerInfo {
@@ -78,13 +73,13 @@ $bg-card: #ffffff;
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: $text-dark;
+  color: v.$text-primary;
   line-height: 1.2;
 }
 
 .company {
   font-size: 0.95rem;
-  color: $primary;
+  color: v.$raw-purple-400;
   font-weight: 500;
   margin-top: 2px;
 }
@@ -100,14 +95,14 @@ $bg-card: #ffffff;
   align-items: center;
   gap: 0.4rem;
   font-size: 0.85rem;
-  color: $text-gray;
+  color: v.$raw-slate-600;
   font-weight: 500;
   background-color: #f3f4f6;
   padding: 2px 8px;
   border-radius: 6px;
 
   svg {
-    color: $text-gray;
+    color: v.$raw-slate-600;
   }
 }
 
@@ -128,12 +123,12 @@ $bg-card: #ffffff;
     padding-left: 1.2rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    color: $text-gray;
+    color: v.$raw-slate-600;
     line-height: 1.5;
 
     &::before {
       content: '•';
-      color: $primary;
+      color: v.$raw-purple-400;
       font-weight: bold;
       position: absolute;
       left: 0;
@@ -142,7 +137,6 @@ $bg-card: #ffffff;
   }
 }
 
-// Opcjonalny guzik
 .linkBtn {
   display: inline-flex;
   align-items: center;
@@ -150,7 +144,7 @@ $bg-card: #ffffff;
   margin-top: 0.5rem;
   background: none;
   border: none;
-  color: $primary;
+  color: v.$raw-purple-400;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
