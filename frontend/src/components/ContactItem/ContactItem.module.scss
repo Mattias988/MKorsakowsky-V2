@@ -36,6 +36,14 @@ $icon-size: 2rem;
     .contactItemDescription {
       text-align: left;
       margin: 0;
+      text-decoration: none;
+      color: v.$text-primary;
+
+      &:hover{
+        color: v.$raw-blue-500;
+
+        transition: color 0.3s ease;
+      }
     }
 
     .contactItemTitle {

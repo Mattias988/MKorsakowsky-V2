@@ -3,12 +3,13 @@
 
 .contactContainer {
   @include mixins.section-defaults;
-  max-width:1540px;
+  max-width:1400px;
   width: 100%;
 
   .mainInfoContainer {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     justify-content: space-around;
 
     .contactLeftContainer {
@@ -27,7 +28,8 @@
         }
 
         .mainInfoDescription {
-          width: 75%;
+          width: 100%;
+          max-width: 60ch;
           text-align: left;
           font-size: 18px;
           color: v.$raw-slate-400;
@@ -44,7 +46,7 @@
 
 
     .contactFormContainer {
-      max-width: 600px;
+      max-width: 500px;
       width: 100%;
     }
   }
