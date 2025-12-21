@@ -3,21 +3,49 @@
 
 .contactContainer {
   @include mixins.section-defaults;
+  max-width:1540px;
+  width: 100%;
 
-  .contactMain {
+  .mainInfoContainer {
+    width: 100%;
     display: flex;
-    gap: 2rem;
+    justify-content: space-around;
 
-    .contactItemsContainer {
+    .contactLeftContainer {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2rem;
 
+      .contentLeft {
+        display: flex;
+        flex-direction: column;
 
+        .mainInfoTitle {
+          text-align: left;
+          font-weight: normal;
+          font-size: 16px;
+        }
+
+        .mainInfoDescription {
+          width: 75%;
+          text-align: left;
+          font-size: 18px;
+          color: v.$raw-slate-400;
+        }
+      }
+
+      .contactItems {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
     }
 
-    .contactFormContainer {
 
+
+    .contactFormContainer {
+      max-width: 600px;
+      width: 100%;
     }
   }
 }
