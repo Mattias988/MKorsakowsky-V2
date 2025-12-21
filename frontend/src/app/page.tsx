@@ -9,6 +9,7 @@ import SkillsAndExpertise from "@/sections/SkillsAndExpertise/SkillsAndExpertise
 import Experience from "@/sections/Experience/Experience";
 import FeaturedProjects from "@/sections/FeaturedProjects/FeaturedProjects";
 import Contact from '@/sections/Contact/Contact';
+import Footer from '@/sections/Footer/Footer';
 
 export default function Page() {
 
@@ -22,7 +23,7 @@ export default function Page() {
           <Experience />
           <FeaturedProjects />
           <Contact />
-          {/*<Footer />*/}
+          <Footer />
         </div>
       </ThemeProvider>
   );
