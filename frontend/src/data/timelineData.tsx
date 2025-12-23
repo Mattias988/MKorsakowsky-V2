@@ -1,30 +1,60 @@
 // timelineData.js
-import { Briefcase, Code } from 'lucide-react'; // Przykładowe ikony
+import { Briefcase, Code } from 'lucide-react';
+import { Experiences } from "@/types";
 
-export const timelineData = [
+export const experienceData : Experiences = [
     {
         id: 1,
-        title: "Senior Full Stack Developer",
-        company: "TechCorp Solutions",
-        date: "2022 - Present",
-        description: "Leading development of enterprise-scale applications using React, Node.js, and cloud technologies.",
+        title: "Junior Full Stack Java Developer",
+        company: "Company Name",
+        date: "2023 - Present",
+        description: "Developing scalable web applications and maintaining backend services using Spring Boot and React.",
         achievements: [
-            "Architected and deployed microservices infrastructure reducing load time by 40%",
-            "Led a team of 5 developers in successful delivery of 3 major projects",
-            "Implemented CI/CD pipeline improving deployment efficiency by 60%"
+            "Developed and integrated 15+ REST API endpoints using Spring Boot and Hibernate",
+            "Refactored legacy React components to Hooks, improving code readability and maintainability",
+            "Increased unit test coverage by 20% using JUnit and Mockito"
         ],
         icon: <Briefcase size={24} color="white" />,
-        color: "#6366f1" // Indigo/Purple color z obrazka
+        color: "#6366f1"
     },
     {
         id: 2,
-        title: "Full Stack Developer",
-        company: "Digital Innovations Inc",
-        date: "2020 - 2022",
-        description: "Developed and maintained multiple client-facing web applications with focus on performance.",
+        title: "Intern Java Developer",
+        company: "Company Name",
+        date: "2022 - 2023",
+        description: "Assisted the development team in building internal tools and fixing bugs in the core product.",
         achievements: [
-            "Built responsive e-commerce platform handling 10K+ daily transactions",
-            "Optimized database queries reducing server response time"
+            "Assisted in the migration of frontend modules from JSP to React",
+            "Resolved 50+ minor bugs and UI issues in the issue tracker (Jira)",
+            "Collaborated with senior developers to learn clean code principles and Git workflow"
+        ],
+        icon: <Code size={24} color="white" />,
+        color: "#6366f1"
+    },
+    {
+        id: 4,
+        title: "Intern Java Developer",
+        company: "Company Name",
+        date: "2022 - 2023",
+        description: "Assisted the development team in building internal tools and fixing bugs in the core product.",
+        achievements: [
+            "Assisted in the migration of frontend modules from JSP to React",
+            "Resolved 50+ minor bugs and UI issues in the issue tracker (Jira)",
+            "Collaborated with senior developers to learn clean code principles and Git workflow"
+        ],
+        icon: <Code size={24} color="white" />,
+        color: "#6366f1"
+    },
+    {
+        id: 5,
+        title: "Intern Java Developer",
+        company: "Company Name",
+        date: "2022 - 2023",
+        description: "Assisted the development team in building internal tools and fixing bugs in the core product.",
+        achievements: [
+            "Assisted in the migration of frontend modules from JSP to React",
+            "Resolved 50+ minor bugs and UI issues in the issue tracker (Jira)",
+            "Collaborated with senior developers to learn clean code principles and Git workflow"
         ],
         icon: <Code size={24} color="white" />,
         color: "#6366f1"
