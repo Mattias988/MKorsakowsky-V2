@@ -4,9 +4,10 @@ import styles from './Navbar.module.scss'
 import {useEffect, useState} from "react";
 import {useTheme} from "@/components/ThemeProvider/ThemeProvider";
 import {AnimatePresence, motion} from "framer-motion";
+import clsx from "clsx";
 
 export default function Navbar() {
-
+    const [isScrolled, setScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
 
@@ -21,11 +22,10 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const root = document.documentElement;
             if (window.scrollY > 50) {
-                root.classList.add('scrolled');
+                setScrolled(true);
             } else {
-                root.classList.remove('scrolled');
+                setScrolled(false);
             }
         }
 
@@ -41,7 +41,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav className={styles.nav}>
+        <header className={clsx(styles.header, isScrolled && styles.scrolled)}>
             <div className={styles.navContainer}>
                 <button
                     onClick={() => scrollToSection('home')}
@@ -54,7 +54,7 @@ export default function Navbar() {
                 </button>
 
                 {/* Desktop Navigation */}
-                <div className={styles.navMenuContainerDesktop}>
+                <nav className={styles.navMenuContainerDesktop}>
                     {navItems.map((item) => (
                         <button
                             key={item.id}
@@ -65,18 +65,14 @@ export default function Navbar() {
                         </button>
                     ))}
 
-                    {/* Theme Toggle */}
-
                     <button
                         onClick={toggleTheme}
                         aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
                         className={styles.toggleTheme}
                     >
-                        {/* możesz wstawić ikonę tu bazując na `theme` */}
                     </button>
-                </div>
+                </nav>
 
-                {/* Mobile Menu & Theme Toggle */}
                 <div className={styles.navMenuContainerMobile}>
                     <button
                         onClick={toggleTheme}
@@ -119,6 +115,6 @@ export default function Navbar() {
                     )}
                 </AnimatePresence>
             </div>
-        </nav>
+        </header>
     )
 }

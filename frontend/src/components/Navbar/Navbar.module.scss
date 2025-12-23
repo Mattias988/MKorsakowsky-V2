@@ -1,4 +1,6 @@
-.nav {
+@use '@/styles/abstracts/variables' as v;
+
+.header {
   display: flex;
   flex-direction: row;
   background: transparent;
@@ -11,6 +13,10 @@
   justify-content: center;
   align-items: center;
 
+  .scrolled {
+    background-color: #fff !important;
+    box-shadow: 0 4px 20px v.$raw-black;
+  }
 
   .navContainer {
     width: 1440px;
@@ -36,7 +42,7 @@
             position: absolute;
             left: 0;
             bottom: 0.125rem;
-            width: 0%;
+            width: 0;
             height: 3px;
             border-radius: 2px;
             background-image: linear-gradient(
