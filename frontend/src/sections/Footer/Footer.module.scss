@@ -1,0 +1,102 @@
+@use '@/styles/abstracts/variables' as v;
+
+.footerContainer{
+  max-width: 1540px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+  background-color: v.$raw-black;
+  position: relative;
+
+  .glow {
+    position: absolute;
+    // Ustawiamy na sztywno, żeby zobaczyć czy działa
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(40%); // Przesuwamy w dół o 40% własnej wysokości
+
+    width: 600px;
+    height: 300px;
+
+    // Użyjmy silnego koloru testowego, a potem zmienisz na gradient
+    // background: red; // <-- ODKOMENTUJ TO JEŚLI NADAL NIC NIE WIDZISZ
+
+    background: radial-gradient(
+                    circle,
+                    v.$glow-purple 0%,  // Jasny fiolet (Tailwind violet-500)
+                    v.$glow-purple 50%    // Przezroczystość
+    );
+
+    filter: blur(60px);
+    pointer-events: none; // Żeby można było klikać przez poświatę
+
+    // Kluczowe: 0, żeby było nad tłem strony, ale pod tekstem
+    z-index: 0;
+  }
+
+  .leftContentFooter{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h2,p {
+      margin:0;
+      color: v.$bg-primary;
+    }
+    .fullName{
+      font-weight: normal;
+
+    }
+    .position{
+      font-weight: normal;
+    }
+  }
+
+  .rightContentFooter{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .socialIcons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+
+
+
+      .iconContainer {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+
+        // Glass style for icons
+        background-color: v.$hero-grid-color;
+        border: 1px solid v.$glass-border;
+        color: v.$text-secondary;
+
+        backdrop-filter: blur(4px);
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba(51, 65, 85, 0.8);
+          transform: translateY(-2px);
+        }
+
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
+
+          &:hover {
+            color: v.$bg-primary;
+          }
+        }
+      }
+    }
+  }
+}

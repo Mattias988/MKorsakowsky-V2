@@ -5,19 +5,19 @@
   @include mixins.section-defaults;
 
   .contentContainer {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     width: 100%;
-    flex-direction: column;
+    max-width: 1400px;
 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 
-    @media(min-width: 768px) {
-      flex-direction: row;
-    }
+    align-items: center;
+
+    margin:0 auto;
+    gap: 1rem;
+
 
     .imageContainer {
-      flex: 1;
       width:100%;
       display:flex;
       justify-content: center;
@@ -26,10 +26,10 @@
               drop-shadow(4px 4px 25px rgba(v.$raw-blue-400, 0.25));
 
       .kittyImage {
-        border-radius: 3%;
+        border-radius: 12px;
         width: 100%;
         height: auto;
-        max-width: 500px;
+        max-width: 600px;
         object-fit: cover;
       }
     }
@@ -40,19 +40,21 @@
       flex-direction: column;
 
       text-align: center;
-      @media(min-width: 768px) {
+      width:100%;
+      max-width: 60ch;
+      margin: 0 auto;
+
+      @media(min-width: 1015px) {
         text-align: left;
         padding-inline: 1rem;
       }
 
       .sectionTitle {
-        text-align: left;
         font-weight: normal;
         color: v.$raw-slate-800;
         font-size: 1rem;
       }
       .sectionDesc {
-        text-align: left;
         color: v.$raw-slate-400;
         font-size: 1.10rem;
       }

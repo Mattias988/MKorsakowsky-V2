@@ -1,4 +1,5 @@
 import {LucideIcon} from "lucide-react";
+import { StaticImageData } from "next/image";
 
 export interface Card {
     title: string;
@@ -18,3 +19,20 @@ export interface SkillCard {
 }
 
 export type SkillsAndExpertise = SkillCard[];
+
+export interface ProjectCardProps {
+    title: string;
+    description: string;
+    technologies: string[];
+    src: StaticImageData | string;
+}
+
+export type ProjectsCards = ProjectCardProps[];
+
+export interface ContactItemProps {
+    icon: LucideIcon;
+    contactItemTitle: string;
+    contactItemDescription: string;
+}
+
+export type ContactsCards = ContactItemProps[];

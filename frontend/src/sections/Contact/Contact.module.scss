@@ -1,0 +1,53 @@
+@use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as mixins;
+
+.contactContainer {
+  @include mixins.section-defaults;
+  max-width:1400px;
+  width: 100%;
+
+  .mainInfoContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    justify-content: space-around;
+
+    .contactLeftContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .contentLeft {
+        display: flex;
+        flex-direction: column;
+
+        .mainInfoTitle {
+          text-align: left;
+          font-weight: normal;
+          font-size: 16px;
+        }
+
+        .mainInfoDescription {
+          width: 100%;
+          max-width: 60ch;
+          text-align: left;
+          font-size: 18px;
+          color: v.$raw-slate-400;
+        }
+      }
+
+      .contactItems {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+
+
+
+    .contactFormContainer {
+      max-width: 500px;
+      width: 100%;
+    }
+  }
+}

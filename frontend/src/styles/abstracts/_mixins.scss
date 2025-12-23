@@ -1,4 +1,4 @@
-@use 'variables' as v;
+@use '@/styles/abstracts/variables' as v;
 
 @mixin section-defaults {
   padding-block: 4rem;

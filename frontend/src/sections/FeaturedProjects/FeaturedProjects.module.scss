@@ -1,0 +1,22 @@
+@use '@/styles/abstracts/mixins' as mixins;
+@use '@/styles/abstracts/variables' as v;
+
+.featuredProjectsContainer {
+  @include mixins.section-defaults;
+
+
+  .projectsCardsContainer{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1540px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    justify-content: center;
+    justify-items: center;
+
+  }
+}

@@ -1,0 +1,55 @@
+@use '@/styles/abstracts/variables' as v;
+
+$item-gap: 1rem;
+$icon-size: 2rem;
+
+.contactItemContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: $item-gap;
+
+  .contactItemIcon {
+    width: $icon-size;
+    height: $icon-size;
+    min-width:$icon-size;
+
+    padding: 1rem;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
+
+  }
+
+  .contactItemInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: $item-gap;
+
+    .contactItemTitle,
+    .contactItemDescription {
+      text-align: left;
+      margin: 0;
+      text-decoration: none;
+      color: v.$text-primary;
+
+      &:hover{
+        color: v.$raw-blue-500;
+
+        transition: color 0.3s ease;
+      }
+    }
+
+    .contactItemTitle {
+      font-weight: normal;
+      color: v.$raw-slate-400;
+    }
+
+  }
+}

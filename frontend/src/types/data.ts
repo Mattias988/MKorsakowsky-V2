@@ -40,12 +40,16 @@ export interface AboutInfo {
 
 export interface Experience {
     id: number;
+    title: string;
     company: string;
-    role: string;
-    startDate: string;
-    endDate: string;
-    description: string[];
+    date: string;
+    description: string;
+    achievements: string[];
+    icon: JSX.Element;
+    color: string;
 }
+
+export type Experiences = Experience[];
 
 export interface SkillsAndExpertiseTitleAndDesc {
     title: string;

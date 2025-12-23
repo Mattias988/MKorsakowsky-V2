@@ -1,10 +1,11 @@
 // components/Timeline/Timeline.module.scss
 
 // ZMIENNE KONFIGURACYJNE
-$dot-size: 20px;       // Rozmiar kropki
+$dot-size: 24px;       // Rozmiar kropki
 $line-width: 2px;      // Grubość linii
 $primary-color: #6366f1;
 $line-color: #e5e7eb;
+$dot-offset: calc($dot-size / 2);
 
 .container {
   max-width: 1000px;
@@ -26,9 +27,24 @@ $line-color: #e5e7eb;
   top: 0;
   bottom: 0;
   left: 50%;
-  // Klucz do idealnego środka: przesuwamy linię o połowę jej grubości w lewo
   transform: translateX(-50%);
   z-index: 0;
+}
+
+.progressLine {
+  position: absolute;
+  width: $line-width;
+  background-color: $primary-color;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  transform-origin: top;
+
+  @media(max-width: 768px) {
+    left: 30px;
+  }
 }
 
 .item {
@@ -38,26 +54,27 @@ $line-color: #e5e7eb;
   box-sizing: border-box;
   z-index: 1;
 
-  // LEWA STRONA (nieparzyste)
   &:nth-child(odd) {
     left: 0;
-    text-align: right; // Tekst do prawej (opcjonalne, ładnie wygląda przy osi)
+    text-align: right;
 
-    // Header wewnątrz karty też odwracamy dla estetyki (opcjonalne)
     .cardHeader {
       flex-direction: row-reverse;
       text-align: right;
     }
 
     .dot {
-      // Kropka po prawej stronie elementu
-      right: calc(($dot-size / 2) * -1);
-      // Wyjaśnienie: przesuwamy w prawo o połowę szerokości kropki.
-      // Skoro linia jest na 50%, a item kończy się na 50%, to środek kropki wypadnie na linii.
+      right: - $dot-offset;
+      left: auto;
+      transform: none;
+    }
+
+    .date{
+      flex-direction: row-reverse;
+      justify-content: flex-start;
     }
   }
 
-  // PRAWA STRONA (parzyste)
   &:nth-child(even) {
     left: 50%;
     text-align: left;
@@ -67,34 +84,33 @@ $line-color: #e5e7eb;
     }
 
     .dot {
-      // Kropka po lewej stronie elementu
-      left: calc(($dot-size / 2) * -1);
+      left: - $dot-offset;
+      right: auto;
+      transform: none;
     }
   }
 }
 
-// KROPKA
 .dot {
   width: $dot-size;
   height: $dot-size;
   background-color: $primary-color;
-  border: 4px solid #fff; // Biała obwódka
+  box-sizing: border-box;
+  border: 4px solid #fff;
   border-radius: 50%;
   position: absolute;
-  top: 24px; // Wyrównanie z górą karty
+  top: 24px;
   z-index: 10;
-  box-shadow: 0 0 0 2px rgba($primary-color, 0.2); // Delikatna poświata
+  box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
 
-  // Ważne: usuwamy transform translate, bo pozycjonujemy precyzyjnie left/right
 }
 
-// WYGLĄD KARTY (CONTENT)
 .content {
   background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  text-align: left; // Resetujemy text-align dla zawartości karty (żeby tekst w środku był normalnie)
+  text-align: left;
 }
 
 .cardHeader {
@@ -137,7 +153,7 @@ $line-color: #e5e7eb;
   font-size: 0.8rem;
   color: #6b7280;
   margin-top: 4px;
-  justify-content: inherit; // Dostosowuje się do align rodzica
+  justify-content: inherit;
 }
 
 .description {
@@ -163,33 +179,29 @@ $line-color: #e5e7eb;
   }
 }
 
-// --- MOBILE (Poniżej 768px) ---
 @media screen and (max-width: 768px) {
-  // Przesuwamy linię na lewo
   .timeline::after {
     left: 30px;
-    transform: none; // Reset transformacji środkującej
+    transform: none;
   }
 
   .item {
     width: 100%;
-    padding-left: 70px; // Miejsce na linię z lewej
+    padding-left: 70px;
     padding-right: 10px;
 
-    // Resetujemy logikę parzyste/nieparzyste -> wszystko wygląda tak samo
     &:nth-child(odd), &:nth-child(even) {
       left: 0;
       text-align: left;
 
       .cardHeader {
-        flex-direction: row; // Ikona zawsze po lewej
+        flex-direction: row;
         text-align: left;
       }
     }
 
-    // Ustawiamy kropkę na nowej linii po lewej
     .dot {
-      left: 20px !important; // 30px (linia) - 10px (połowa kropki) = 20px
+      left: 20px !important;
       right: auto !important;
     }
   }
