@@ -9,13 +9,18 @@
   .mainInfoContainer {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit  , minmax(400px, 1fr));
     justify-content: space-around;
+    align-items: center;
+    margin:0 auto;
 
     .contactLeftContainer {
+      width: 100%;
+      max-width: 400px;
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      margin-inline: auto;
 
       .contentLeft {
         display: flex;
