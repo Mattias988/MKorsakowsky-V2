@@ -55,6 +55,16 @@
       border-radius: 1rem;
       width: fit-content;
       padding-inline: 1rem;
+
+        &:hover {
+            box-shadow: 0 10px 15px -3px v.$glow-blue;
+            border-color: v.$raw-blue-400;
+            transition: all 0.3s ease-in-out;
+        }
+
+      p {
+        cursor:default;
+      }
     }
   }
 
