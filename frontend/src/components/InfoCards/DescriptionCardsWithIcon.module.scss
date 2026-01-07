@@ -34,7 +34,9 @@
     display: flex;
     justify-content: start;
     h4 {
-
+      font-weight: normal;
+      padding:20px 0;
+      margin: 0;
     }
   }
 
@@ -42,5 +44,12 @@
     flex-grow: 1;
     text-wrap: wrap;
     text-align: start;
+
+    p {
+      line-height: 1.5;
+      color: v.$raw-slate-600;
+      padding:5px 0;
+      margin:0;
+    }
   }
 }
