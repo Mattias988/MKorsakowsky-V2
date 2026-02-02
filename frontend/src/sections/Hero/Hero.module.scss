@@ -170,12 +170,12 @@
       .getInTouchButton {
         // Style outline
         border: 1px solid v.$text-secondary;
-        color: v.$text-primary;
+        color: v.$text-secondary;
         background: transparent;
 
         &:hover {
           background-color: v.$glass-bg;
-          border-color: v.$text-primary;
+          border-color: v.$text-accent;
         }
       }
     }

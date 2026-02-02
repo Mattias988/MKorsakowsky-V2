@@ -30,7 +30,7 @@ export default function Timeline ({ data }: TimelineProps) {
                 <div className={styles.timeline}>
                     <motion.div
                         className={styles.progressLine}
-                        style={{ scaleY }} // Framer Motion automatycznie obsługuje transform: scaleY()
+                        style={{ scaleY }}
                     />
 
                     {data.map((item) => (

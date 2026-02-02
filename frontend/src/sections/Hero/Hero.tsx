@@ -14,7 +14,7 @@ export default function Hero() {
     };
 
     const {
-        status, titlePrefix, name, role, description, primaryButton, secondaryButton, scrollText
+        status, titlePrefix, name, description, primaryButton, secondaryButton, scrollText
     } = heroContent;
 
     return (

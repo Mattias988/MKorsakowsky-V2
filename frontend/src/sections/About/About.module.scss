@@ -35,25 +35,26 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+
       text-align: center;
       width:100%;
       max-width: 60ch;
+      margin: 0 auto;
 
-      @media(min-width: 768px) {
+      @media(min-width: 1015px) {
         text-align: left;
         padding-inline: 1rem;
       }
 
       .sectionTitle {
-        text-align: left;
         font-weight: normal;
-        color: v.$raw-slate-800;
+        color: v.$raw-slate-700;
         font-size: 1rem;
       }
       .sectionDesc {
-        text-align: left;
-        color: v.$raw-slate-400;
+        color: v.$raw-slate-500;
         font-size: 1.10rem;
+        line-height: 1.5;
       }
     }
   }

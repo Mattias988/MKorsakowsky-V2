@@ -8,7 +8,7 @@ export default function ContactItem({icon: Icon, contactItemTitle, contactItemDe
             <div className={styles.contactItemIcon}><Icon /></div>
             <div className={styles.contactItemInfo}>
                 <h3 className={styles.contactItemTitle}>{contactItemTitle}</h3>
-                <p className={styles.contactItemDescription}>{contactItemDescription}</p>
+                <a href={`mailto:${contactItemDescription}`} className={styles.contactItemDescription}>{contactItemDescription}</a>
             </div>
         </section>
     )

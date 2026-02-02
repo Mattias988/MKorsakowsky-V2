@@ -5,13 +5,14 @@
   max-width: 450px;
   height: 100%;
   background-color: v.$bg-primary;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px v.$glow-blue;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   text-align: left;
 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     .image {
@@ -57,6 +58,7 @@
       font-size: 1rem;
       color: v.$raw-slate-400;
       margin-bottom: 1rem;
+      line-height: 1.5;
     }
 
     .technologiesUsed {
@@ -64,6 +66,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+
+      align-items: center;
 
       .techItem {
         background-color: v.$bg-primary;
