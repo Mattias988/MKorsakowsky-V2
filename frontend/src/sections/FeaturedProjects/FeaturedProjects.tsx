@@ -1,4 +1,4 @@
-import TitleAndDesc from "@/components/TitleAndDesc/TitleAndDesc";
+    import TitleAndDesc from "@/components/TitleAndDesc/TitleAndDesc";
 import {featuredProjectsTitleAndDesc} from "@/data/featuredProjects";
 import styles from "./FeaturedProjects.module.scss";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";

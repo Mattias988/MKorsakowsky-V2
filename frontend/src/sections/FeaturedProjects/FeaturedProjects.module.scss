@@ -3,17 +3,17 @@
 
 .featuredProjectsContainer {
   @include mixins.section-defaults;
-  background-color: v.$raw-slate-200;
 
 
   .projectsCardsContainer{
     width: 100%;
     margin: 0 auto;
-    max-width: 1540px;
+    max-width: 1400px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: stretch;
+    gap: 1rem;
     overflow-x: auto;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
 }
