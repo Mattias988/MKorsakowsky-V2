@@ -13,7 +13,6 @@ export default function Contact() {
             <TitleAndDesc title={title} description={description}/>
 
             <main className={styles.mainInfoContainer}>
-
                 <div className={styles.contactLeftContainer}>
                     <div className={styles.contentLeft}>
                         <h2 className={styles.mainInfoTitle}>Get in Touch</h2>
