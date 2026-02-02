@@ -1,5 +1,5 @@
 import {TitleAndDescProps} from "@/types/components";
-import styles from "@/sections/About/About.module.scss";
+import styles from "@/components/TitleAndDesc/TitleAndDesc.module.scss";
 
 export default function TitleAndDesc({title , description}: TitleAndDescProps) {
 
