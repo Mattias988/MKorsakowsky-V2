@@ -16,26 +16,31 @@
     border-color: v.$raw-blue-400;
     transition: all 0.3s ease-in-out;
   }
+
   .iconContainer {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 15px 20px -2px v.$glow-cyan;
+    width: fit-content;
 
     .icon {
-      background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
-      padding: 1rem;
-      border-radius: 1rem;
       color: white;
-      box-shadow: 0 15px 20px -2px v.$glow-cyan;
+      width: 24px;
+      height: 24px;
     }
   }
 
   .titleContainer {
     display: flex;
     justify-content: start;
+
     h4 {
       font-weight: normal;
-      padding:20px 0;
+      padding: 20px 0;
       margin: 0;
     }
   }
@@ -48,8 +53,8 @@
     p {
       line-height: 1.5;
       color: v.$raw-slate-600;
-      padding:5px 0;
-      margin:0;
+      padding: 5px 0;
+      margin: 0;
     }
   }
 }
