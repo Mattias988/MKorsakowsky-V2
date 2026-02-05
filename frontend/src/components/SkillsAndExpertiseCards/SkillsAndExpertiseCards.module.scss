@@ -16,27 +16,33 @@
     border-color: v.$raw-blue-400;
     transition: all 0.3s ease-in-out;
   }
+
   .skillCardContainer {
     display: flex;
     gap: 1rem;
 
     .iconContainer {
       display: flex;
-      justify-content: start;
+      justify-content: center;
       align-items: center;
+      background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 15px 20px -2px v.$glow-cyan;
+      width: fit-content; // Ensure it doesn't stretch
 
       .icon {
-        background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
-        padding: 1rem;
-        border-radius: 1rem;
         color: white;
-        box-shadow: 0 15px 20px -2px v.$glow-cyan;
+        // box-sizing: content-box; // Alternative fix, but container is cleaner
+        width: 24px;
+        height: 24px;
       }
     }
 
     .titleContainer {
       display: flex;
       justify-content: start;
+
       h4 {
         font-weight: lighter;
       }

@@ -1,14 +1,13 @@
 @use '@/styles/abstracts/mixins' as mixins;
 @use '@/styles/abstracts/variables' as v;
 
-$bg-card: #ffffff;
-
 .experienceSection {
   padding: 5rem 1rem;
 }
 
 .container {
   @include mixins.section-defaults;
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -25,23 +24,24 @@ $bg-card: #ffffff;
   }
 
   p {
-    color: v.$raw-slate-600;
+    color: v.$text-secondary;
     font-size: 1.1rem;
   }
 }
 
 
 .card {
-  background: $bg-card;
+  background: v.$bg-secondary;
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.03);
+  border: 1px solid v.$glass-border;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: v.$text-accent;
   }
 }
 
@@ -56,12 +56,14 @@ $bg-card: #ffffff;
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  background-color: v.$raw-purple-400;
+  background-color: v.$bg-primary;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px -1px rgba(v.$raw-purple-400, 0.3);
+  color: v.$text-accent;
+  border: 1px solid v.$glass-border;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .headerInfo {
@@ -79,7 +81,7 @@ $bg-card: #ffffff;
 
 .company {
   font-size: 0.95rem;
-  color: v.$raw-purple-400;
+  color: v.$text-accent;
   font-weight: 500;
   margin-top: 2px;
 }
@@ -95,19 +97,20 @@ $bg-card: #ffffff;
   align-items: center;
   gap: 0.4rem;
   font-size: 0.85rem;
-  color: v.$raw-slate-600;
+  color: v.$text-secondary;
   font-weight: 500;
-  background-color: #f3f4f6;
+  background-color: v.$bg-primary; // Fallback or semantic
+  border: 1px solid v.$glass-border;
   padding: 2px 8px;
   border-radius: 6px;
 
   svg {
-    color: v.$raw-slate-600;
+    color: v.$text-secondary;
   }
 }
 
 .description {
-  color: #374151;
+  color: v.$text-secondary;
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -123,12 +126,12 @@ $bg-card: #ffffff;
     padding-left: 1.2rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    color: v.$raw-slate-600;
+    color: v.$text-secondary;
     line-height: 1.5;
 
     &::before {
       content: '•';
-      color: v.$raw-purple-400;
+      color: v.$text-accent;
       font-weight: bold;
       position: absolute;
       left: 0;
@@ -144,7 +147,7 @@ $bg-card: #ffffff;
   margin-top: 0.5rem;
   background: none;
   border: none;
-  color: v.$raw-purple-400;
+  color: v.$text-accent;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
@@ -152,5 +155,6 @@ $bg-card: #ffffff;
 
   &:hover {
     text-decoration: underline;
+    opacity: 0.8;
   }
 }
