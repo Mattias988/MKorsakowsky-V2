@@ -1,8 +1,8 @@
-// timelineData.js
+// experienceData.tsx
 import { Briefcase, Code } from 'lucide-react';
 import { Experiences } from "@/types";
 
-export const experienceData : Experiences = [
+export const experienceData: Experiences = [
     {
         id: 1,
         title: "Junior Full Stack Java Developer",
@@ -58,5 +58,5 @@ export const experienceData : Experiences = [
         ],
         icon: <Code size={24} color="white" />,
         color: "#6366f1"
-    }
+    },
 ];

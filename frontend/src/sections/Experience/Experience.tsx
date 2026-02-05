@@ -4,8 +4,8 @@ import React from 'react';
 import styles from './Experience.module.scss';
 import Timeline from "@/components/Timeline/Timeline/Timeline";
 import TitleAndDesc from "@/components/TitleAndDesc/TitleAndDesc";
-import {experienceTitleAndDesc} from "@/data/experience";
-import { experienceData } from '@/data/timelineData';
+import { experienceTitleAndDesc } from "@/data/experience";
+import { experienceData } from '@/data/experienceData';
 
 export default function Experience() {
     const { title, description } = experienceTitleAndDesc;
