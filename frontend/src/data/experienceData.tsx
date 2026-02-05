@@ -5,56 +5,42 @@ import { Experiences } from "@/types";
 export const experienceData: Experiences = [
     {
         id: 1,
-        title: "Junior Full Stack Java Developer",
-        company: "Company Name",
-        date: "2023 - Present",
-        description: "Developing scalable web applications and maintaining backend services using Spring Boot and React.",
+        title: "Backend developer - INTERN",
+        company: "Prognosis Sp. z o.o.",
+        date: "VII.2023 - IX.2023",
+        description: "I possess a basic knowledge of Java, object-oriented programming, and the Spring Boot framework, and I have gained valuable experience working with microservices. Additionally, I am familiar with Hibernate and writing SQL queries, and I have worked with PostgreSQL.",
         achievements: [
-            "Developed and integrated 15+ REST API endpoints using Spring Boot and Hibernate",
-            "Refactored legacy React components to Hooks, improving code readability and maintainability",
-            "Increased unit test coverage by 20% using JUnit and Mockito"
+            "Built scalable microservices using Java and Spring Boot framework",
+            "Optimized database interactions using Hibernate and PostgreSQL",
+            "Developed REST API endpoints ensuring high code quality with object-oriented programming"
         ],
         icon: <Briefcase size={24} color="white" />,
         color: "#6366f1"
     },
     {
         id: 2,
-        title: "Intern Java Developer",
-        company: "Company Name",
-        date: "2022 - 2023",
-        description: "Assisted the development team in building internal tools and fixing bugs in the core product.",
+        title: "Frontend developer - INTERN",
+        company: "Prognosis Sp. z o.o.",
+        date: "X.2023 - V.2024",
+        description: "I possess knowledge of TypeScript and React, along with experience in creating responsive user interfaces using React.js and Tailwind CSS. I am also familiar with Figma and have a proven track record of building reusable components in React.",
         achievements: [
-            "Assisted in the migration of frontend modules from JSP to React",
-            "Resolved 50+ minor bugs and UI issues in the issue tracker (Jira)",
-            "Collaborated with senior developers to learn clean code principles and Git workflow"
+            "Created responsive user interfaces using React.js and Tailwind CSS",
+            "Built a set of reusable components in TypeScript based on Figma designs",
+            "Maintained and improved frontend codebase ensuring high performance and responsiveness"
         ],
         icon: <Code size={24} color="white" />,
         color: "#6366f1"
     },
     {
-        id: 4,
-        title: "Intern Java Developer",
-        company: "Company Name",
-        date: "2022 - 2023",
-        description: "Assisted the development team in building internal tools and fixing bugs in the core product.",
+        id: 3,
+        title: "Web developer",
+        company: "Kamal-bet",
+        date: "VII.2025 - Present",
+        description: "I have a solid understanding of WordPress and Elementor, supported by strong technical skills in PHP. I specialize in building complex websites and developing custom plugins for WordPress and WooCommerce. Additionally, I ensure that all websites are built with responsiveness in mind, delivering a seamless user experience across all devices.",
         achievements: [
-            "Assisted in the migration of frontend modules from JSP to React",
-            "Resolved 50+ minor bugs and UI issues in the issue tracker (Jira)",
-            "Collaborated with senior developers to learn clean code principles and Git workflow"
-        ],
-        icon: <Code size={24} color="white" />,
-        color: "#6366f1"
-    },
-    {
-        id: 5,
-        title: "Intern Java Developer",
-        company: "Company Name",
-        date: "2022 - 2023",
-        description: "Assisted the development team in building internal tools and fixing bugs in the core product.",
-        achievements: [
-            "Assisted in the migration of frontend modules from JSP to React",
-            "Resolved 50+ minor bugs and UI issues in the issue tracker (Jira)",
-            "Collaborated with senior developers to learn clean code principles and Git workflow"
+            "Developed custom plugins for WordPress and WooCommerce using PHP",
+            "Built complex, responsive websites using Elementor and WordPress",
+            "Optimized website performance and user experience across diverse devices"
         ],
         icon: <Code size={24} color="white" />,
         color: "#6366f1"
