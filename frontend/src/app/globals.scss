@@ -8,31 +8,35 @@
 
   --hero-grid: rgba(30, 41, 59, 1);
 
-  --hero-text-main:  #{v.$raw-white};
-  --hero-text-muted: #{v.$raw-slate-300};
+  --hero-text-main: #{v.$raw-white};
+  --hero-text-muted: #{v.$raw-slate-300}; // Hero usually has dark bg even in light mode, so keep light?
+  // User asked for unification. If Hero BG is dark, text MUST be light.
+  // The hero-bg variable is dark by default in static settings.
+  // Checking Light Theme overrides:
+
 }
 
 // ==============================================
 // LIGHT THEME
 // ==============================================
 :root {
-  --bg-primary:         #{v.$raw-white};
-  --bg-secondary:       #{v.$raw-slate-800};
-  --text-primary:       #{v.$raw-slate-900};
-  --text-secondary:     #{v.$raw-slate-300};
-  --text-accent:        #{v.$raw-cyan-400};
+  --bg-primary: #{v.$raw-white};
+  --bg-secondary: #{v.$raw-white};
+  --text-primary: #{v.$raw-slate-900};
+  --text-secondary: #{v.$raw-slate-600}; // Darker for readability on white
+  --text-accent: #{v.$raw-cyan-400};
 
-  --hero-bg-gradient:   linear-gradient(to bottom right, #eff6ff, #dbeafe, #eff6ff);
-  --hero-grid-color:    rgba(30, 41, 59, 0.05);
+  --hero-bg-gradient: linear-gradient(to bottom right, #eff6ff, #dbeafe, #eff6ff);
+  --hero-grid-color: rgba(30, 41, 59, 0.05);
 
-  --glass-bg:           rgba(59, 130, 246, 0.1);
-  --glass-border:       rgba(59, 130, 246, 0.2);
-  --glass-text:         #{v.$raw-blue-500};
+  --glass-bg: rgba(59, 130, 246, 0.1);
+  --glass-border: rgba(59, 130, 246, 0.2);
+  --glass-text: #{v.$raw-blue-500};
 
-  --gradient-main:      linear-gradient(to right, #{v.$raw-blue-500}, #{v.$raw-cyan-400}, #{v.$raw-purple-400});
-  --glow-blue:          rgba(37, 99, 235, 0.3);
-  --glow-purple:        rgba(147, 51, 234, 0.3);
-  --glow-cyan:          rgba(8, 145, 178, 0.2);
+  --gradient-main: linear-gradient(to right, #{v.$raw-blue-500}, #{v.$raw-cyan-400}, #{v.$raw-purple-400});
+  --glow-blue: rgba(37, 99, 235, 0.3);
+  --glow-purple: rgba(147, 51, 234, 0.3);
+  --glow-cyan: rgba(8, 145, 178, 0.2);
 
 
 
@@ -41,32 +45,43 @@
 // ==============================================
 // DYNAMIC DARK THEME
 // ==============================================
-[dark-theme='dark'] {
+// ==============================================
+// DYNAMIC DARK THEME
+// ==============================================
+[data-theme='dark'] {
 
-  --bg-primary:       #{v.$raw-black};
-  --bg-secondary:     #{v.$raw-slate-800};
-  --text-primary:     #{v.$raw-white};
-  --text-secondary:   #{v.$raw-slate-300};
-  --text-accent:      #{v.$raw-cyan-400};
+  --bg-primary: #{v.$raw-black};
+  --bg-secondary: #{v.$raw-slate-800};
+  --text-primary: #{v.$raw-white};
+  --text-secondary: #{v.$raw-slate-300};
+  --text-accent: #{v.$raw-cyan-400};
 
   --hero-bg-gradient: linear-gradient(to bottom right, #{v.$raw-black}, #{v.$raw-slate-900}, #{v.$raw-black});
-  --hero-grid-color:  rgba(30, 41, 59, 0.1);
+  --hero-grid-color: rgba(30, 41, 59, 0.1);
 
-  --glass-bg:         rgba(59, 130, 246, 0.15);
-  --glass-border:     rgba(59, 130, 246, 0.3);
-  --glass-text:       #{v.$raw-blue-400};
+  --glass-bg: rgba(59, 130, 246, 0.15);
+  --glass-border: rgba(59, 130, 246, 0.3);
+  --glass-text: #{v.$raw-blue-400};
 
-  --gradient-main:    linear-gradient(to right, #{v.$raw-blue-400}, #{v.$raw-cyan-400}, #{v.$raw-purple-400});
-  --glow-blue:        rgba(37, 99, 235, 0.4);
-  --glow-purple:      rgba(147, 51, 234, 0.4);
-  --glow-cyan:         rgba(8, 145, 178, 0.3);
+  --gradient-main: linear-gradient(to right, #{v.$raw-blue-400}, #{v.$raw-cyan-400}, #{v.$raw-purple-400});
+  --glow-blue: rgba(37, 99, 235, 0.4);
+  --glow-purple: rgba(147, 51, 234, 0.4);
+  --glow-cyan: rgba(8, 145, 178, 0.3);
+}
+
+// Global Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-   font-family: v.$font-main;
-   background-color: v.$bg-primary;
-   color: v.$text-primary;
-   transition: background-color 0.3s ease, color 0.3s ease;
-   margin:0;
-   padding:0;
- }
+  font-family: v.$font-main;
+  background-color: v.$bg-primary;
+  color: v.$text-primary;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; // Prevent horizontal scroll
+}
