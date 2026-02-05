@@ -1,4 +1,5 @@
 @use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as m;
 
 .ProjectCardContainer {
   width: 100%;
@@ -14,18 +15,11 @@
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  &:hover {
-    .image {
-      transform: scale(1.1);
-    }
-    box-shadow: 0 15px 25px -5px v.$glow-blue;
-  }
-
   .imageContainer {
     width: 100%;
     height: 250px;
     overflow: hidden;
-    position: relative;
+    position: relative; // Needed for absolute overlay
 
     .image {
       width: 100%;
@@ -34,8 +28,68 @@
       display: block;
       overflow: hidden;
       backface-visibility: hidden;
-      transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+      transition: transform 0.3s ease-out;
     }
+
+    // --- OVERLAY STYLES ---
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 10; // Ensure it's above the image
+      background: rgba(0, 0, 0, 0.6); // Dark semi-transparent
+      opacity: 1; // Visible by default (Mobile)
+
+      @include m.mq(lg) {
+        opacity: 0; // Hidden by default (Desktop)
+      }
+
+      transition: opacity 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      backdrop-filter: blur(2px);
+
+      // Buttons inside overlay
+      .linkButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: v.$text-accent; // Fixed undefined variable
+          transform: scale(1.1);
+          border-color: white;
+          background: white;
+          color: black;
+        }
+
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+
+  // Hover Effect for Project Card
+  &:hover {
+    .image {
+      transform: scale(1.1);
+    }
+
+    // Show overlay on hover
+    .overlay {
+      opacity: 1;
+    }
+
+    box-shadow: 0 15px 25px -5px v.$glow-blue;
   }
 
 
@@ -72,7 +126,7 @@
       .techItem {
         background-color: v.$bg-primary;
         color: v.$raw-blue-500;
-        border:1px solid v.$glass-border;
+        border: 1px solid v.$glass-border;
         padding: 0.3rem 0.6rem;
         border-radius: 1rem;
         font-size: 0.9rem;
