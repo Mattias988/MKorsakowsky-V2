@@ -1,4 +1,5 @@
 @use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as m;
 
 .header {
   display: flex;
@@ -7,96 +8,225 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-  width: 100svw;
-  height:4rem;
+  z-index: 9999;
+  width: 100%;
+  height: 4.5rem;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease-in-out;
 
-  .scrolled {
-    background-color: #fff !important;
-    box-shadow: 0 4px 20px v.$raw-black;
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+
+    // Dark mode support if needed (via body class or variable)
+    [data-theme='dark'] & {
+      background: rgba(15, 23, 42, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    // Override colors when scrolled (restore theme awareness)
+    .navContainer {
+      .logoButton {
+        color: v.$text-primary;
+      }
+
+      .navMenuContainerDesktop {
+        .navMenuDesktopButton {
+          color: v.$text-secondary;
+
+          &:hover {
+            color: v.$text-primary;
+          }
+        }
+
+        .toggleTheme {
+          color: v.$text-secondary;
+          border-color: v.$glass-border;
+
+          &:hover {
+            color: v.$text-accent;
+          }
+        }
+      }
+
+      .navMenuContainerMobile {
+        .toggleThemeMobile {
+          color: v.$text-secondary;
+        }
+
+        .navMenuMobileButton {
+          color: v.$text-primary;
+        }
+      }
+    }
   }
 
   .navContainer {
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     display: flex;
-    padding-inline: 4rem ;
+    padding-inline: 1.5rem;
     justify-content: space-between;
+    align-items: center;
     background-color: transparent;
+
+    @include m.mq(lg) {
+      padding-inline: 4rem;
+    }
 
     .logoButton {
       background: transparent;
       border: none;
-      color: white;
-      font-size: 1.3rem;
-
+      color: v.$raw-white;
+      font-size: 1.25rem;
+      font-weight: 700;
       position: relative;
       overflow: hidden;
       padding-bottom: 0.25rem;
-      display: inline-block;
       cursor: pointer;
+      z-index: 1001;
 
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0.125rem;
-            width: 0;
-            height: 3px;
-            border-radius: 2px;
-            background-image: linear-gradient(
-            to right,
-                    #60a5fa,  /* blue-400 */
-                    #22d3ee,  /* cyan-400 */
-                    #c084fc   /* purple-400 */
-            );
-            transition: width 500ms ease;
-            will-change: width;
-        }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-image: v.$gradient-main;
+        transition: width 0.3s ease;
+      }
 
-        &:hover::after,
-        &:focus::after {
-            width: 100%;
-        }
+      &:hover::after {
+        width: 100%;
+      }
     }
 
-    .navMenuContainerDesktop{
+    // --- DESKTOP MENU ---
+    .navMenuContainerDesktop {
+      display: none; // Hidden on mobile
 
+      @include m.mq(lg) {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
 
-      .navMenuDesktopButton{
-        padding-inline: 1.2rem ;
+      .navMenuDesktopButton {
+        padding: 0.6rem 1.2rem;
         background: transparent;
-        transition: background-color 200ms ease;
-        will-change: background-color;
+        transition: all 0.2s ease;
         border: none;
-        color: white;
-        font-size: 1rem;
-        padding-block: 0.6rem;
+        color: v.$raw-slate-300;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+          color: v.$text-primary;
+          background: v.$glass-bg;
+        }
+      }
+
+      .toggleTheme {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+        background: transparent;
+        color: v.$raw-slate-300;
+        border-color: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: v.$glass-bg;
+          color: v.$text-accent;
+        }
+      }
+    }
+
+    // --- MOBILE MENU ---
+    .navMenuContainerMobile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 1001;
+      position: relative;
+
+      @include m.mq(lg) {
+        display: none;
+      }
+
+      .toggleThemeMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: v.$raw-slate-300;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+
+      .navMenuMobileButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: v.$raw-white;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.2s ease;
+        position: relative;
+        z-index: 1002;
+        pointer-events: auto;
+
+        &:hover {
+          color: v.$text-accent;
+        }
+      }
+    }
+
+    // Mobile Dropdown
+    .mobileMenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: v.$bg-primary;
+      border-bottom: 1px solid v.$glass-border;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      z-index: 9998;
+
+      .mobileNavigationButton {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        background: transparent;
+        border: none;
+        color: v.$text-primary;
+        font-size: 1.1rem;
+        font-weight: 500;
         border-radius: 0.5rem;
 
         &:hover {
-          background: rgba(255, 255, 255, 0.1);
+          background: v.$bg-secondary;
         }
-      }
-
-      .toggleTheme{
-        display: none;
-      }
-    }
-
-    .navMenuContainerMobile{
-      display: none;
-
-      .toggleThemeMobile{
-        display: none;
-      }
-      .navMenuMobileButton{
-        display: none;
       }
     }
   }
-
-
-
 }

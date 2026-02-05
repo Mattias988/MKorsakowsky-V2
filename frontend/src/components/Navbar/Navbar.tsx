@@ -1,15 +1,22 @@
 'use client';
 
 import styles from './Navbar.module.scss'
-import {useEffect, useState} from "react";
-import {useTheme} from "@/components/ThemeProvider/ThemeProvider";
-import {AnimatePresence, motion} from "framer-motion";
+import { useEffect, useState } from "react";
+import { useTheme } from "@/components/ThemeProvider/ThemeProvider";
+import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
+import { Moon, Sun, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
     const [isScrolled, setScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const { theme, toggleTheme } = useTheme();
+
+    // Prevent hydration mismatch
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const navItems = [
         { name: 'Home', id: 'home' },
@@ -49,7 +56,7 @@ export default function Navbar() {
                 >
                     <span>
                         Maciej Korsakowski
-                        <span/>
+                        <span />
                     </span>
                 </button>
 
@@ -67,53 +74,49 @@ export default function Navbar() {
 
                     <button
                         onClick={toggleTheme}
-                        aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                        aria-label={mounted && theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
                         className={styles.toggleTheme}
                     >
+                        {mounted && theme === 'dark' ? <Moon size={20} /> : <Sun size={20} />}
                     </button>
                 </nav>
 
                 <div className={styles.navMenuContainerMobile}>
                     <button
                         onClick={toggleTheme}
-                        aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                        aria-label={mounted && theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
                         className={styles.toggleThemeMobile}
                     >
-
+                        {mounted && theme === 'dark' ? <Moon size={20} /> : <Sun size={20} />}
                     </button>
 
                     <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        onClick={() => {
+                            console.log("Mobile menu clicked, new state:", !isMobileMenuOpen);
+                            setIsMobileMenuOpen(!isMobileMenuOpen);
+                        }}
                         aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                         className={styles.navMenuMobileButton}
                     >
-
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
 
-                <AnimatePresence>
-                    {isMobileMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className={styles.mobileMenu}
-                            >
-                            <div>
-                                {navItems.map((item) => (
-                                        <button
-                                            key={item.id}
-                                            onClick={() => scrollToSection(item.id)}
-                                            className={styles.mobileNavigationButton}
-                                        >
-                                            {item.name}
-                                        </button>
-                                    ))}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                {isMobileMenuOpen && (
+                    <div className={styles.mobileMenu}>
+                        <div>
+                            {navItems.map((item) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => scrollToSection(item.id)}
+                                    className={styles.mobileNavigationButton}
+                                >
+                                    {item.name}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </header>
     )
