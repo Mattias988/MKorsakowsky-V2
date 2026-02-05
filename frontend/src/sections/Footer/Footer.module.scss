@@ -1,72 +1,96 @@
 @use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as m;
 
-.footerContainer{
-  max-width: 1540px;
+.footerContainer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 4rem 0;
-  background-color: v.$raw-black;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 0; // Increased padding significantly
+  background-color: v.$bg-secondary;
   position: relative;
+  overflow: hidden;
+  border-top: 1px solid v.$glass-border;
+
+  .footerContent {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+    padding-inline: 1.5rem; // Add standard padding
+
+    @include m.mq(md) {
+      flex-direction: row;
+      align-items: center;
+      padding-inline: 4rem; // Mathcing other sections
+    }
+  }
 
   .glow {
     position: absolute;
-    // Ustawiamy na sztywno, żeby zobaczyć czy działa
-    bottom: 0;
+    bottom: -50%;
     left: 50%;
-    transform: translateX(-50%) translateY(40%); // Przesuwamy w dół o 40% własnej wysokości
-
+    transform: translateX(-50%);
     width: 600px;
-    height: 300px;
-
-    // Użyjmy silnego koloru testowego, a potem zmienisz na gradient
-    // background: red; // <-- ODKOMENTUJ TO JEŚLI NADAL NIC NIE WIDZISZ
-
-    background: radial-gradient(
-                    circle,
-                    v.$glow-purple 0%,  // Jasny fiolet (Tailwind violet-500)
-                    v.$glow-purple 50%    // Przezroczystość
-    );
-
-    filter: blur(60px);
-    pointer-events: none; // Żeby można było klikać przez poświatę
-
-    // Kluczowe: 0, żeby było nad tłem strony, ale pod tekstem
+    height: 400px;
+    background: radial-gradient(circle,
+        rgba(147, 51, 234, 0.2) 0%,
+        transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
     z-index: 0;
   }
 
-  .leftContentFooter{
+  .leftContentFooter {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding-left: 2rem;
+    z-index: 1;
+    align-items: center; // Center items on mobile
+    text-align: center; // Center text on mobile
 
-    h2,p {
-      margin:0;
-      color: v.$bg-primary;
+    @include m.mq(md) {
+      align-items: flex-start; // Reset for desktop
+      text-align: left;
     }
-    .fullName{
-      font-weight: normal;
 
+    h2 {
+      margin: 0;
+      color: v.$text-primary;
+      font-size: 1.5rem;
+      font-weight: 700;
     }
-    .position{
-      font-weight: normal;
+
+    p {
+      margin: 0;
+      color: v.$text-secondary;
+    }
+
+    .fullName {
+      font-weight: 600;
+    }
+
+    .position {
+      font-weight: 400;
+      color: v.$text-accent;
     }
   }
 
-  .rightContentFooter{
+  .rightContentFooter {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; // Center on mobile
     align-items: center;
-    padding-right: 2rem;
+    z-index: 1;
+
+    @include m.mq(md) {
+      justify-content: flex-end;
+    }
 
     .socialIcons {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      align-items: center;
-
-
 
       .iconContainer {
         width: 3rem;
@@ -77,25 +101,23 @@
         border-radius: 0.75rem;
 
         // Glass style for icons
-        background-color: v.$hero-grid-color;
+        background-color: v.$bg-primary;
         border: 1px solid v.$glass-border;
         color: v.$text-secondary;
 
         backdrop-filter: blur(4px);
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
 
         &:hover {
-          background-color: rgba(51, 65, 85, 0.8);
-          transform: translateY(-2px);
+          background-color: v.$text-accent;
+          color: v.$bg-primary;
+          transform: translateY(-4px);
+          box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
         }
 
         .icon {
           width: 1.5rem;
           height: 1.5rem;
-
-          &:hover {
-            color: v.$bg-primary;
-          }
         }
       }
     }

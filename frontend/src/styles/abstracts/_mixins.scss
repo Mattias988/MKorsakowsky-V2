@@ -5,11 +5,33 @@
   background-color: v.$bg-primary;
   width: 100%;
   max-width: 1400px;
-  padding-inline: 1.5rem;
+  margin-inline: auto; // Center the section on large screens
+  padding-inline: 1rem; // Reduced for mobile
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
   gap: 3rem;
+}
+
+/// Mixin for Media Queries
+/// @param {String} $size - Breakpoint key (sm, md, lg, xl, 2xl)
+@mixin mq($size) {
+  @if map-has-key(v.$breakpoints, $size) {
+    $breakpoint: map-get(v.$breakpoints, $size);
+
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Unknown breakpoint: #{$size}. Available: #{map-keys(v.$breakpoints)}";
+  }
+}
+
+/// Fluid Typography Mixin
+@mixin responsive-text($min-size, $max-size) {
+  font-size: clamp(#{$min-size}, 2vw + 1rem, #{$max-size});
 }

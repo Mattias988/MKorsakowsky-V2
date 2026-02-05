@@ -1,7 +1,7 @@
 @use '@/styles/abstracts/variables' as v;
 @use '@/styles/abstracts/mixins' as mixins;
 
-.aboutSection{
+.aboutSection {
   @include mixins.section-defaults;
 
   .contentContainer {
@@ -9,18 +9,17 @@
     max-width: 1400px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: center;
-    margin:0 auto;
+    margin: 0 auto;
     gap: 1rem;
 
     .imageContainer {
-      width:100%;
-      display:flex;
+      width: 100%;
+      display: flex;
       justify-content: center;
       filter:
-              drop-shadow(-4px -4px 25px rgba(v.$raw-purple-600, 0.25))
-              drop-shadow(4px 4px 25px rgba(v.$raw-blue-400, 0.25));
+        drop-shadow(-4px -4px 25px rgba(v.$raw-purple-600, 0.25)) drop-shadow(4px 4px 25px rgba(v.$raw-blue-400, 0.25));
 
       .kittyImage {
         border-radius: 12px;
@@ -37,7 +36,7 @@
       flex-direction: column;
 
       text-align: center;
-      width:100%;
+      width: 100%;
       max-width: 60ch;
       margin: 0 auto;
 
@@ -47,14 +46,18 @@
       }
 
       .sectionTitle {
-        font-weight: normal;
-        color: v.$raw-slate-700;
-        font-size: 1rem;
+        font-weight: 600;
+        color: v.$text-accent;
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
       }
+
       .sectionDesc {
-        color: v.$raw-slate-500;
-        font-size: 1.10rem;
-        line-height: 1.5;
+        color: v.$text-secondary;
+        font-size: 1.125rem;
+        line-height: 1.7;
       }
     }
   }
@@ -74,6 +77,7 @@
       height: auto;
     }
   }
+
   .imageContainer {
     max-height: 400px;
     height: 100%;

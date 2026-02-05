@@ -1,81 +1,103 @@
 @use '@/styles/abstracts/variables' as v;
+@use '@/styles/abstracts/mixins' as m;
 
 .heroSection {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
   background: v.$hero-bg;
   text-align: center;
+  overflow: hidden; // Prevent bulb overflow
 
-  .overlay{
+  .overlay {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(to right, v.$hero-grid 1px, transparent 1px),
-    linear-gradient(to bottom, v.$hero-grid 1px, transparent 1px);
-    opacity: 20%;
-    background-size: 4rem 4rem;
+    // Enhanced grid pattern
+    background-image:
+      linear-gradient(to right, v.$hero-grid 1px, transparent 1px),
+      linear-gradient(to bottom, v.$hero-grid 1px, transparent 1px);
+    opacity: 0.15;
+    background-size: 3rem 3rem;
+
+    // Gradient fade at bottom
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   }
 
-  .animatedBulbs{
+  .animatedBulbs {
     position: absolute;
     inset: 0;
+    pointer-events: none;
 
     @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
+      0% {
+        opacity: 0.8;
+        transform: scale(1) translate(0, 0);
       }
-      50% {
-        opacity: 0.5;
+
+      33% {
+        opacity: 0.6;
+        transform: scale(1.1) translate(2%, -5%);
+      }
+
+      66% {
+        opacity: 0.7;
+        transform: scale(0.9) translate(-2%, 5%);
+      }
+
+      100% {
+        opacity: 0.8;
+        transform: scale(1) translate(0, 0);
       }
     }
 
     %bulb-base {
       position: absolute;
       border-radius: 50%;
-      filter: blur(64px);
+      filter: blur(80px);
+      opacity: 0.5;
     }
 
-    .firstBulb{
+    .firstBulb {
       @extend %bulb-base;
-      top:25%;
-      left:25%;
-      width:24rem;
-      height:24rem;
+      top: 10%;
+      left: 10%;
+      width: clamp(10rem, 30vw, 30rem);
+      height: clamp(10rem, 30vw, 30rem);
       background-color: v.$glow-blue;
-      animation: pulse 6s infinite;
+      animation: pulse 8s infinite alternate;
     }
 
-    .secondBulb{
+    .secondBulb {
       @extend %bulb-base;
-      bottom: 25%;
-      right: 25%;
-      height: 24rem; /* 384px */
-      width: 24rem; /* 384px */
+      bottom: 20%;
+      right: 10%;
+      width: clamp(8rem, 25vw, 25rem);
+      height: clamp(8rem, 25vw, 25rem);
       background-color: v.$glow-purple;
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      animation: pulse 6s infinite alternate-reverse;
     }
 
-    .thirdBulb{
+    .thirdBulb {
       @extend %bulb-base;
-      top: 50%;
-      left: 50%;
-      width: 24rem; /* 384px */
-      height: 24rem; /* 384px */
+      top: 40%;
+      left: 60%;
+      width: clamp(6rem, 20vw, 20rem);
+      height: clamp(6rem, 20vw, 20rem);
       background-color: v.$glow-cyan;
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      animation: pulse 7s infinite alternate;
     }
   }
 
   .contentHero {
     position: relative;
     z-index: 10;
+    width: 100%;
     max-width: 80rem;
     margin-inline: auto;
-    padding: 20px 6px;
+    padding: 6rem 1.5rem 10rem; // Increased bottom padding to prevent scroll indicator overlap
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,33 +109,35 @@
       padding: 0.5rem 1rem;
       border-radius: 9999px;
       margin-bottom: 2rem;
+      font-size: 0.875rem;
 
-      // Glassmorphism Variables
+      // Glassmorphism
       background-color: v.$glass-bg;
       border: 1px solid v.$glass-border;
       color: v.$glass-text;
-
       backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
     .sparkles {
-      width: 16px;
-      height: 16px;
-      color: inherit;
+      width: 1rem;
+      height: 1rem;
     }
 
     h1 {
       color: v.$hero-text-main;
-      margin-bottom: 24px;
-      line-height: 1.25;
-      font-size: 2.5rem;
-      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+
+      // Use fluid typography
+      @include m.responsive-text(2rem, 4.5rem);
 
       .introduceMyself {
         position: relative;
         display: inline-block;
-        margin-left: 0.5rem;
+        white-space: nowrap; // Prevent breaking name if possible
       }
 
       .myFullName {
@@ -125,21 +149,22 @@
 
       .underline {
         position: absolute;
-        bottom: 2px;
+        bottom: 0px;
         left: 0;
         right: 0;
         height: 4px;
         border-radius: 999px;
         background: v.$gradient-main;
+        opacity: 0.8;
       }
     }
 
     .heroDescription {
       color: v.$hero-text-muted;
-      font-size: 1.25rem;
+      @include m.responsive-text(1rem, 1.25rem);
       max-width: 48rem;
       margin-bottom: 3rem;
-      line-height: 1.625;
+      line-height: 1.6;
 
       .myPosition {
         color: v.$text-accent;
@@ -150,32 +175,45 @@
     // --- BUTTONS & SOCIALS ---
     .heroSocialsContainer {
       display: flex;
-      justify-content: center;
-      margin-bottom: 36px;
+      flex-direction: column; // Column on mobile
+      width: 100%;
+      max-width: 20rem;
       gap: 1rem;
-      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      margin-inline: auto; // Ensure container itself is centered
+
+      @include m.mq(sm) {
+        flex-direction: row;
+        width: auto;
+        max-width: none;
+        justify-content: center;
+      }
 
       .myWorkButton {
-        background-image: linear-gradient(to right, #2563eb, #9333ea);
+        // Modern gradient button
+        background-image: linear-gradient(135deg, #2563eb, #9333ea);
         color: white;
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 
         &:hover {
-          opacity: 0.9;
-          transform: translateY(-1px);
-          box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+          opacity: 1; // Override default opacity hover if set elsewhere
         }
       }
 
       .getInTouchButton {
-        // Style outline
-        border: 1px solid v.$text-secondary;
-        color: v.$text-secondary;
-        background: transparent;
+        border: 1px solid v.$glass-border;
+        background: rgba(255, 255, 255, 0.03);
+        color: v.$hero-text-main;
+        backdrop-filter: blur(4px);
 
         &:hover {
           background-color: v.$glass-bg;
           border-color: v.$text-accent;
+          color: v.$text-accent;
         }
       }
     }
@@ -184,8 +222,7 @@
       display: flex;
       gap: 1rem;
       justify-content: center;
-
-
+      flex-wrap: wrap;
 
       .iconContainer {
         width: 3rem;
@@ -196,25 +233,28 @@
         border-radius: 0.75rem;
 
         // Glass style for icons
-        background-color: v.$hero-grid-color;
+        background-color: rgba(30, 41, 59, 0.3);
         border: 1px solid v.$glass-border;
         color: v.$text-secondary;
-
         backdrop-filter: blur(4px);
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
-          background-color: rgba(51, 65, 85, 0.8);
-          transform: translateY(-2px);
+          background-color: v.$glass-bg;
+          border-color: v.$text-accent;
+          color: v.$bg-primary;
+          transform: translateY(-4px);
+          box-shadow: 0 8px 16px -4px rgba(34, 211, 238, 0.2);
+
+          .icon {
+            color: v.$text-accent;
+          }
         }
 
         .icon {
           width: 1.5rem;
           height: 1.5rem;
-
-          &:hover {
-            color: v.$bg-primary;
-          }
+          transition: color 0.3s ease;
         }
       }
     }
@@ -222,30 +262,52 @@
     // --- SCROLL INDICATOR ---
     .scrollDownIndicatorContainer {
       position: absolute;
-      bottom: -6rem;
+      bottom: 2.5rem; // Slightly adjusted
       left: 50%;
       transform: translateX(-50%);
       cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
 
       .scrollText {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
         color: v.$text-secondary;
       }
 
       .arrowDownIcon {
-        width: 1.25rem;
-        height: 1.25rem;
-        color: v.$text-secondary;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: v.$text-accent;
         animation: bounce 2s infinite;
       }
 
       @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-25%); }
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+
+        40% {
+          transform: translateY(-6px);
+        }
+
+        60% {
+          transform: translateY(-3px);
+        }
       }
     }
   }

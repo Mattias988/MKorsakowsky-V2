@@ -1,7 +1,7 @@
 // explanation: Usunąłem nieużywane parametry w catch, usunąłem niepotrzebne eslint-disable oraz dodałem 'theme' jako zależność w efekcie logującym.
 'use client';
 
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -26,12 +26,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     useEffect(() => {
         const root = document.documentElement;
+        // Use data-theme attribute for consistency with standard CSS practices
+        root.setAttribute('data-theme', theme);
 
-        if(theme === 'dark') {
+        // Also add class for Tailwind 'class' strategy compatibility if needed
+        if (theme === 'dark') {
             root.classList.add('dark');
         } else {
             root.classList.remove('dark');
         }
+
         try {
             localStorage.setItem('theme', theme);
         } catch {
@@ -40,7 +44,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme( prev => prev === 'light' ? 'dark' : 'light' );
+        setTheme(prev => prev === 'light' ? 'dark' : 'light');
     };
 
     // debug: upewnij się, że provider się renderuje
@@ -58,7 +62,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 export function useTheme() {
     const context = useContext(ThemeContext);
 
-    if(!context) {
+    if (!context) {
         throw new Error('useTheme must be used within a ThemeProvider');
     }
     return context;

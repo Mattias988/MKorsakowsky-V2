@@ -3,23 +3,23 @@
 // ==============================================
 
 // Neutrals (Biały/Czarny)
-$raw-white:      #FFFFFF;
-$raw-black:      #020617; // Slate 950 (Bardzo ciemne tło)
+$raw-white: #FFFFFF;
+$raw-black: #020617; // Slate 950 (Bardzo ciemne tło)
 
 // Slate (Szaro-niebieskie tła)
-$raw-slate-900:  #0f172a;
-$raw-slate-800:  #1e293b;
-$raw-slate-700:  #2b2b2b;
-$raw-slate-600:  #475569;
-$raw-slate-500:  #64748b;
-$raw-slate-400:  #94a3b8;
-$raw-slate-300:  #cbd5e1;
-$raw-slate-200:  #e2e8f0;
+$raw-slate-900: #0f172a;
+$raw-slate-800: #1e293b;
+$raw-slate-700: #2b2b2b;
+$raw-slate-600: #475569;
+$raw-slate-500: #64748b;
+$raw-slate-400: #94a3b8;
+$raw-slate-300: #cbd5e1;
+$raw-slate-200: #e2e8f0;
 
 // Accents (Twoje kolory świecenia)
-$raw-blue-500:   #3b82f6;
-$raw-blue-400:   #60a5fa;
-$raw-cyan-400:   #22d3ee;
+$raw-blue-500: #3b82f6;
+$raw-blue-400: #60a5fa;
+$raw-cyan-400: #22d3ee;
 $raw-purple-400: #c084fc;
 $raw-purple-600: #9333ea;
 
@@ -28,30 +28,30 @@ $raw-purple-600: #9333ea;
 // 3. SEMANTIC TOKENS
 // ==============================================
 
-$bg-primary:     var(--bg-primary);
-$bg-secondary:   var(--bg-secondary);
-$text-primary:   var(--text-primary);
+$bg-primary: var(--bg-primary);
+$bg-secondary: var(--bg-secondary);
+$text-primary: var(--text-primary);
 $text-secondary: var(--text-secondary);
-$text-accent:    var(--text-accent);
+$text-accent: var(--text-accent);
 
 // Hero Specifics
-$hero-bg-gradient:  var(--hero-bg-gradient);
-$hero-grid-color:   var(--hero-grid-color);
-$hero-bg:           var(--hero-bg);
-$hero-text-main:    var(--hero-text-main);
-$hero-text-muted:   var(--hero-text-muted);
-$hero-grid:         var(--hero-grid);
+$hero-bg-gradient: var(--hero-bg-gradient);
+$hero-grid-color: var(--hero-grid-color);
+$hero-bg: var(--hero-bg);
+$hero-text-main: var(--hero-text-main);
+$hero-text-muted: var(--hero-text-muted);
+$hero-grid: var(--hero-grid);
 
 // Glassmorphism
-$glass-bg:       var(--glass-bg);
-$glass-border:   var(--glass-border);
-$glass-text:     var(--glass-text);
+$glass-bg: var(--glass-bg);
+$glass-border: var(--glass-border);
+$glass-text: var(--glass-text);
 
 // Gradients & Glows
-$gradient-main:  var(--gradient-main);
-$glow-blue:      var(--glow-blue);
-$glow-purple:    var(--glow-purple);
-$glow-cyan:      var(--glow-cyan);
+$gradient-main: var(--gradient-main);
+$glow-blue: var(--glow-blue);
+$glow-purple: var(--glow-purple);
+$glow-cyan: var(--glow-cyan);
 
 // ==============================================
 // 4. TYPOGRAPHY (Typografia)
@@ -66,6 +66,14 @@ $font-mono: 'Courier New', monospace;
 // ==============================================
 // 5. LAYOUT & BREAKPOINTS (RWD)
 // ==============================================
+
+$breakpoints: (
+    'sm': 640px,
+    'md': 768px,
+    'lg': 1024px,
+    'xl': 1280px,
+    '2xl': 1536px
+);
 
 
 

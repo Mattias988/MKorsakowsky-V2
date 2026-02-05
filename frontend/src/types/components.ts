@@ -1,4 +1,4 @@
-import {LucideIcon} from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { StaticImageData } from "next/image";
 
 export interface Card {
@@ -25,6 +25,8 @@ export interface ProjectCardProps {
     description: string;
     technologies: string[];
     src: StaticImageData | string;
+    githubUrl?: string; // Link to GitHub repo
+    demoUrl?: string;   // Link to live demo
 }
 
 export type ProjectsCards = ProjectCardProps[];
