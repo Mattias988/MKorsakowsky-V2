@@ -1,5 +1,5 @@
-import {SocialLink} from "@/types";
-import {Github, Linkedin, Mail} from "lucide-react";
+import { SocialLink } from "@/types";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export const socialLinks: SocialLink[] = [
     {
@@ -11,7 +11,7 @@ export const socialLinks: SocialLink[] = [
     {
         id: 2,
         name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/mattias-schulze-989b621b4/',
+        url: 'https://www.linkedin.com/in/maciej-korsakowski-a65b0226a/',
         icon: Linkedin,
     },
     {
