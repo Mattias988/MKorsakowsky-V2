@@ -9,7 +9,7 @@ export const projectsCardsData: ProjectsCards = [
         description: "A comprehensive event management system for speed dating, featuring Brevo email integration and deployed on Microsoft Azure.",
         technologies: ["Django", "Next.js", "Docker", "Azure", "PostgreSQL"],
         src: speedDateImg,
-        githubUrl: "#",
+        githubUrl: "https://github.com/benhus8/SpeedDatingMatcher",
         demoUrl: "#"
     },
     {
@@ -17,7 +17,7 @@ export const projectsCardsData: ProjectsCards = [
         description: "A full-stack food delivery platform built with Spring Boot and Angular, facilitating restaurant management and dietary product filtering.",
         technologies: ["Java", "Spring Boot", "Angular", "PostgreSQL", "Hibernate"],
         src: deliveryAppImg,
-        githubUrl: "#",
+        githubUrl: "https://github.com/Mattias988/DeliveryApp",
         demoUrl: "#"
     },
     {
@@ -25,7 +25,7 @@ export const projectsCardsData: ProjectsCards = [
         description: "A frontend capstone project designed as a real estate marketplace, featuring advanced filtering and sorting for property listings.",
         technologies: ["HTML5", "SCSS", "JavaScript", "Vite"],
         src: realEstateImg,
-        githubUrl: "#",
+        githubUrl: "https://github.com/Mattias988/capstone-project",
         demoUrl: "#"
     }
 ];

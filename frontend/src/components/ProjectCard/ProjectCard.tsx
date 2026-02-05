@@ -23,7 +23,7 @@ export default function ProjectCard({ title, description, technologies, src, git
                             <Github className={styles.icon} />
                         </a>
                     )}
-                    {demoUrl && (
+                    {/* {demoUrl && (
                         <a
                             href={demoUrl}
                             target="_blank"
@@ -33,7 +33,7 @@ export default function ProjectCard({ title, description, technologies, src, git
                         >
                             <ExternalLink className={styles.icon} />
                         </a>
-                    )}
+                    )} */}
                 </div>
             </div>
             <div className={styles.content}>
