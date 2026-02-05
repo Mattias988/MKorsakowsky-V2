@@ -9,10 +9,8 @@ $icon-size: 2rem;
   gap: $item-gap;
 
   .contactItemIcon {
-    width: $icon-size;
-    height: $icon-size;
-    min-width:$icon-size;
-
+    width: fit-content;
+    height: fit-content;
     padding: 1rem;
     border-radius: 12px;
 
@@ -23,6 +21,10 @@ $icon-size: 2rem;
     color: white;
     background-image: linear-gradient(to bottom right, v.$raw-blue-500, v.$raw-purple-600);
 
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
   .contactItemInfo {
@@ -39,7 +41,7 @@ $icon-size: 2rem;
       text-decoration: none;
       color: v.$text-primary;
 
-      &:hover{
+      &:hover {
         color: v.$raw-blue-500;
 
         transition: color 0.3s ease;

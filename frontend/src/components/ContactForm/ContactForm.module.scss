@@ -1,7 +1,13 @@
 @use '@/styles/abstracts/variables' as v;
 
 .contactForm {
-  *, *::before, *::after {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -21,36 +27,64 @@
       box-shadow: 0 10px 20px v.$glow-blue;
       transition: all 0.1s ease-in-out;
     }
+
     .formGroup {
       display: flex;
       flex-direction: column;
       margin-bottom: 15px;
       text-align: left;
+      width: 100%;
 
       label {
         margin-bottom: 10px;
-        font-weight: normal;
-        color: v.$raw-slate-800
+        font-weight: 500;
+        color: v.$text-primary;
+        font-size: 0.95rem;
       }
 
-      input{
+      input {
         margin-bottom: 15px;
         padding: 15px;
-        border: none;
+        border: 1px solid v.$glass-border;
+        background: v.$bg-primary;
+        color: v.$text-primary;
         border-radius: 12px;
         font-size: 16px;
+        width: 100%;
+        transition: border-color 0.2s;
+
+        &:focus {
+          outline: none;
+          border-color: v.$text-accent;
+        }
+
+        &::placeholder {
+          color: v.$text-secondary;
+          opacity: 0.7;
+        }
       }
 
       textarea {
         margin-bottom: 15px;
-        padding: 10px;
-        border: none;
+        padding: 15px;
+        border: 1px solid v.$glass-border;
+        background: v.$bg-primary;
+        color: v.$text-primary;
         border-radius: 12px;
         font-size: 16px;
         resize: vertical;
+        width: 100%;
+        min-height: 120px;
+        transition: border-color 0.2s;
 
-        &:active {
-          border-color: v.$glass-border;
+        &:focus {
+          outline: none;
+          border-color: v.$text-accent;
+        }
+
+        &::placeholder {
+          color: v.$text-secondary;
+          opacity: 0.7;
         }
       }
     }
@@ -59,7 +93,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap:1rem;
+      gap: 1rem;
       padding: 10px 15px;
       background-image: linear-gradient(to right, v.$raw-blue-500, v.$raw-purple-600);
       color: white;
