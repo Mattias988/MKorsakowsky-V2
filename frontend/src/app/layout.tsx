@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.scss";
 import { ThemeProvider } from "@/components/ThemeProvider/ThemeProvider";
+import { Toaster } from "sonner";
 
 const rubik = Rubik({
     variable: "--font-rubik",
@@ -14,7 +15,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://twoje-portfolio.pl
 export const metadata: Metadata = {
     metadataBase: new URL(BASE_URL),
 
-    title:{
+    title: {
         default: 'Maciej Korsakowski | Full Stack Developer',
         template: '%s | Maciej Korsakowski',
     },
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
         'TailwindCSS'
     ],
 
-    authors:[{ name: 'Maciej Korsakowski', url: BASE_URL}],
+    authors: [{ name: 'Maciej Korsakowski', url: BASE_URL }],
 
     robots: {
         index: true,
@@ -75,6 +76,7 @@ export default function RootLayout({
             <body className={`${rubik.variable} antialiased`}>
                 <ThemeProvider>
                     {children}
+                    <Toaster richColors />
                 </ThemeProvider>
             </body>
         </html>
