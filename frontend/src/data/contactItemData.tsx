@@ -1,5 +1,5 @@
-import {MailIcon, MapPinIcon, PhoneIcon} from "lucide-react";
-import {ContactsCards} from "@/types/components";
+import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
+import { ContactsCards } from "@/types/components";
 
 export const contactItemsData: ContactsCards = [
     {
@@ -10,11 +10,11 @@ export const contactItemsData: ContactsCards = [
     {
         icon: PhoneIcon,
         contactItemTitle: "Phone",
-        contactItemDescription: "+48 123 456 789"
+        contactItemDescription: "+48 603 139 470"
     },
     {
         icon: MapPinIcon,
         contactItemTitle: "Location",
-        contactItemDescription: "Warsaw, Poland"
+        contactItemDescription: "Cracow, Poland"
     }
 ];
