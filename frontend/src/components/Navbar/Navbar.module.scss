@@ -203,6 +203,7 @@
       left: 0;
       width: 100%;
       background: v.$bg-primary;
+      transition: background-color 0.3s ease;
       border-bottom: 1px solid v.$glass-border;
       padding: 1rem;
       display: flex;
