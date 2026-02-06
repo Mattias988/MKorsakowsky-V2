@@ -1,5 +1,5 @@
 import TitleAndDesc from "@/components/TitleAndDesc/TitleAndDesc";
-import { featuredProjectsTitleAndDesc } from "@/data/featuredProjects";
+import { featuredProjectsTitleAndDesc } from "@/data/featuredProjectsTitleAndDesc";
 import styles from "./FeaturedProjects.module.scss";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { projectsCardsData } from "@/data/projectsCards";
