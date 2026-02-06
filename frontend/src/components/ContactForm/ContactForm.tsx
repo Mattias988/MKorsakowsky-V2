@@ -1,5 +1,5 @@
 import styles from './ContactForm.module.scss'
-import {Send} from "lucide-react";
+import { Send } from "lucide-react";
 
 export default function ContactForm() {
     return (
@@ -9,8 +9,8 @@ export default function ContactForm() {
                 <div className={styles.formGroup}>
                     <label htmlFor="name">Name</label>
                     <input
-                        type="email"
-                        name="email"
+                        type="text"
+                        name="Name"
                         placeholder="Your name..."
                         required
                         className={styles.input}
@@ -34,7 +34,7 @@ export default function ContactForm() {
                 </div>
 
                 <button type="submit" className={styles.button}>
-                    <Send width={18}/>
+                    <Send width={18} />
                     Send Message
                 </button>
 
