@@ -8,7 +8,7 @@ export default function FeaturedProjects() {
     const { sectionTitle, sectionDescription } = featuredProjectsTitleAndDesc;
 
     return (
-        <section className={styles.featuredProjectsContainer}>
+        <section id="projects" className={styles.featuredProjectsContainer}>
             <TitleAndDesc title={sectionTitle} description={sectionDescription} />
 
             <div className={styles.projectsCardsContainer}>
