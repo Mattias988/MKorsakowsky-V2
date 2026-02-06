@@ -3,7 +3,6 @@
 import styles from './Navbar.module.scss'
 import { useEffect, useState } from "react";
 import { useTheme } from "@/components/ThemeProvider/ThemeProvider";
-import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { Moon, Sun, Menu, X } from 'lucide-react';
 
@@ -21,7 +20,7 @@ export default function Navbar() {
     const navItems = [
         { name: 'Home', id: 'home' },
         { name: 'About', id: 'about' },
-        { name: 'Skills', id: 'skills' },
+        { name: 'Skills', id: 'skills-and-expertise' },
         { name: 'Experience', id: 'experience' },
         { name: 'Projects', id: 'projects' },
         { name: 'Contact', id: 'contact' },
