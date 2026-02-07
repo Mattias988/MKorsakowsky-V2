@@ -12,7 +12,7 @@ export const projectsCardsData: ProjectsCards = [
         technologies: ["Django", "Next.js", "Docker", "Azure", "PostgreSQL"],
         src: speedDateImg,
         githubUrl: "https://github.com/benhus8/SpeedDatingMatcher",
-        demoUrl: "#"
+        demoUrl: ""
     },
     {
         title: "DeliveryApp",
@@ -20,7 +20,7 @@ export const projectsCardsData: ProjectsCards = [
         technologies: ["Java", "Spring Boot", "Angular", "PostgreSQL", "Hibernate"],
         src: deliveryAppImg,
         githubUrl: "https://github.com/Mattias988/DeliveryApp",
-        demoUrl: "#"
+        demoUrl: ""
     },
     {
         title: "Real Estate Portal",
@@ -28,23 +28,23 @@ export const projectsCardsData: ProjectsCards = [
         technologies: ["HTML5", "SCSS", "JavaScript", "Vite"],
         src: realEstateImg,
         githubUrl: "https://github.com/Mattias988/capstone-project",
-        demoUrl: "#"
+        demoUrl: ""
     },
     {
         title: "Kamal-bet Czech version",
         description: "A localized corporate website dedicated to the Czech market. Built on WordPress using Elementor for dynamic layouts and custom PHP development for specific functionality. The project features a fully integrated WooCommerce store tailored for Czech customers.",
         technologies: ["WordPress", "WooCommerce", "PHP", "Elementor", "JavaScript", "HTML5", "CSS", "Redis"],
         src: kamalBetCzechImg,
-        githubUrl: "https://betonovejimki-kamal.cz",
-        demoUrl: "#"
+        githubUrl: "",
+        demoUrl: "https://betonovejimki-kamal.cz"
     },
     {
         title: "Kamal-bet Slovak version",
         description: "The Slovak edition of the Kamal-bet business platform. Developed with WordPress and Elementor, featuring custom PHP solutions and a robust WooCommerce e-commerce system. Designed to serve as a professional showcase and online store for the Slovak region.",
         technologies: ["WordPress", "WooCommerce", "PHP", "Elementor", "JavaScript", "HTML5", "CSS", "Redis"],
         src: kamalBetSlovakImg,
-        githubUrl: "https://betonovezumpy-kamal.sk",
-        demoUrl: "#"
+        githubUrl: "",
+        demoUrl: "https://betonovezumpy-kamal.sk"
     },
 
 ];
