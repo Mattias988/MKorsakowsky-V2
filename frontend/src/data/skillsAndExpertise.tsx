@@ -19,6 +19,8 @@ export const skillsAndExpertise: SkillsAndExpertise = [
             "CSS3",
             "Sass",
             "Tailwind CSS",
+            "Wordpress",
+            "PHP",
             "Responsive Design"
         ],
     },
@@ -26,13 +28,11 @@ export const skillsAndExpertise: SkillsAndExpertise = [
         cardTitle: "Backend Development",
         icon: Server,
         skills: [
-            "Node.js",
-            "Express.js",
             "Python",
+            "FastAPI",
             "Django",
             "RESTful APIs",
-            "GraphQL",
-            "Database Management (SQL & NoSQL)"
+            "Database Management (SQL)"
         ],
     },
     {
@@ -41,11 +41,9 @@ export const skillsAndExpertise: SkillsAndExpertise = [
         skills: [
             "MySQL",
             "PostgreSQL",
-            "MongoDB",
             "Git & GitHub",
             "Docker",
             "CI/CD Pipelines",
-            "Cloud Services (AWS, Azure)"
         ],
     },
     {
@@ -53,7 +51,6 @@ export const skillsAndExpertise: SkillsAndExpertise = [
         icon: Smartphone,
         skills: [
             "React Native",
-            "Flutter",
             "UI/UX Principles",
             "Agile Methodologies",
             "Problem-Solving",
